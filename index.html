@@ -1433,6 +1433,151 @@
     /* Hide native cursor over photo items (not the quote) */
     .witness-item:not(.w-quote) { cursor: none; }
 
+    /* ===== Lightbox ===== */
+    .witnesses-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(24px, 4vw, 60px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+            opacity 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
+            visibility 0s linear 0.5s;
+    }
+
+    .witnesses-lightbox.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition:
+            opacity 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
+            visibility 0s linear 0s;
+    }
+
+    .lightbox-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(5, 5, 5, 0.78);
+        backdrop-filter: blur(28px) saturate(120%);
+        -webkit-backdrop-filter: blur(28px) saturate(120%);
+        cursor: pointer;
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: clamp(20px, 3vw, 40px);
+        right: clamp(20px, 3vw, 40px);
+        z-index: 2;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.85);
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        transition:
+            background 0.35s cubic-bezier(0.2, 0.6, 0.2, 1),
+            border-color 0.35s cubic-bezier(0.2, 0.6, 0.2, 1),
+            color 0.35s cubic-bezier(0.2, 0.6, 0.2, 1),
+            transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+    }
+
+    .lightbox-close:hover {
+        background: rgba(212, 175, 92, 0.16);
+        border-color: rgba(212, 175, 92, 0.45);
+        color: var(--gold);
+        transform: rotate(90deg);
+    }
+
+    .lightbox-close svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lightbox-figure {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        max-width: min(1100px, 92vw);
+        transform: scale(0.94) translateY(12px);
+        transition: transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+        pointer-events: none;       /* let backdrop receive close click */
+    }
+
+    .witnesses-lightbox.is-open .lightbox-figure {
+        transform: scale(1) translateY(0);
+    }
+
+    .lightbox-figure > * { pointer-events: auto; }
+
+    .lightbox-frame {
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+        background: #0a0a0a;
+        box-shadow:
+            0 60px 120px rgba(0, 0, 0, 0.65),
+            0 24px 60px rgba(0, 0, 0, 0.45),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        max-height: 78vh;
+    }
+
+    .lightbox-img {
+        display: block;
+        max-width: 100%;
+        max-height: 78vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .lightbox-caption {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    .lightbox-caption .caption-line {
+        width: clamp(28px, 4vw, 48px);
+        height: 1px;
+        background: var(--gold);
+    }
+
+    .lightbox-num {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(20px, 1.8vw, 26px);
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .lightbox-label {
+        font-size: 11.5px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* Prevent body scroll when open — applied via JS class on <html> */
+    html.lightbox-locked,
+    html.lightbox-locked body { overflow: hidden; }
+
     /* ===== Touch / mobile fallbacks ===== */
     @media (hover: none) {
         .witnesses-cursor { display: none; }
@@ -2073,6 +2218,26 @@
     <div class="witnesses-cursor" aria-hidden="true">
         <span>Ver</span>
     </div>
+
+    <!-- Lightbox — click a photo to enlarge with blurred backdrop -->
+    <div class="witnesses-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+        <div class="lightbox-backdrop"></div>
+        <button class="lightbox-close" type="button" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <figure class="lightbox-figure">
+            <div class="lightbox-frame">
+                <img class="lightbox-img" src="" alt="">
+            </div>
+            <figcaption class="lightbox-caption">
+                <span class="caption-line" aria-hidden="true"></span>
+                <span class="lightbox-num"></span>
+                <span class="lightbox-label"></span>
+            </figcaption>
+        </figure>
+    </div>
 </section>
 
 <script>
@@ -2245,6 +2410,56 @@
             });
 
             tickCursor();
+        }
+
+        // --- Lightbox: click a photo to enlarge with blurred backdrop ---
+        const lightbox = section.querySelector('.witnesses-lightbox');
+        if (lightbox) {
+            const lbImg      = lightbox.querySelector('.lightbox-img');
+            const lbNum      = lightbox.querySelector('.lightbox-num');
+            const lbLabel    = lightbox.querySelector('.lightbox-label');
+            const lbClose    = lightbox.querySelector('.lightbox-close');
+            const lbBackdrop = lightbox.querySelector('.lightbox-backdrop');
+            const html       = document.documentElement;
+            const cursorEl   = section.querySelector('.witnesses-cursor');
+
+            function openLightbox(item) {
+                const img   = item.querySelector('img');
+                const num   = item.querySelector('.witness-num');
+                const label = item.querySelector('.witness-label');
+                if (!img) return;
+
+                lbImg.src   = img.src;
+                lbImg.alt   = img.alt || '';
+                lbNum.textContent   = num   ? num.textContent   : '';
+                lbLabel.textContent = label ? label.textContent : '';
+
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                html.classList.add('lightbox-locked');
+                if (cursorEl) cursorEl.classList.remove('is-visible');
+                lbClose.focus({ preventScroll: true });
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                html.classList.remove('lightbox-locked');
+            }
+
+            const photoItems = section.querySelectorAll('.witness-item:not(.w-quote)');
+            photoItems.forEach(item => {
+                item.addEventListener('click', () => openLightbox(item));
+            });
+
+            lbClose.addEventListener('click', closeLightbox);
+            lbBackdrop.addEventListener('click', closeLightbox);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
         }
     })();
 </script>
