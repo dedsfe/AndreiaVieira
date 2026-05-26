@@ -244,7 +244,7 @@
 
     .about-inner {
         display: grid;
-        grid-template-columns:  7fr 5fr;
+        grid-template-columns: 5fr 7fr;
         gap: clamp(48px, 7vw, 110px);
         align-items: center;
     }
@@ -1662,7 +1662,7 @@
             grid-template-columns: 1fr;
             gap: 56px;
         }
-        .about-media { margin: 0 auto; }
+        .about-media { margin: 0 auto; order: 2; }
 
         .slide {
             grid-template-columns: 1fr;
