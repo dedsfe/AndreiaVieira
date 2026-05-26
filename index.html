@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mulheres Curadas — Andrea Vieira</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Uma jornada profunda para restaurar feridas emocionais, vencer a ansiedade e redescobrir sua verdadeira identidade em Deus com mentoria de Andrea Vieira.">
+<meta name="keywords" content="cura emocional, mentoria crista, ansiedade, identidade em deus, andrea vieira, mulheres curadas, fé cristã">
+<meta name="author" content="Andrea Vieira">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andreavieira.com/">
+<meta property="og:title" content="Mulheres Curadas — Andrea Vieira">
+<meta property="og:description" content="Uma jornada profunda para restaurar feridas emocionais, vencer a ansiedade e redescobrir sua verdadeira identidade em Deus.">
+<meta property="og:image" content="assets/andrea.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://andreavieira.com/">
+<meta property="twitter:title" content="Mulheres Curadas — Andrea Vieira">
+<meta property="twitter:description" content="Uma jornada profunda para restaurar feridas emocionais, vencer a ansiedade e redescobrir sua verdadeira identidade em Deus.">
+<meta property="twitter:image" content="assets/andrea.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -2018,6 +2037,289 @@
         letter-spacing: 0.05em;
         text-transform: uppercase;
     }
+
+    /* ============================================================
+       07 — FAQ (Perguntas Frequentes)
+       ============================================================ */
+    .faq {
+        position: relative;
+        z-index: 1;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: clamp(80px, 12vh, 140px) clamp(24px, 5vw, 72px);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .faq-layout {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: clamp(40px, 6vw, 88px);
+        align-items: start;
+    }
+
+    @media (max-width: 991px) {
+        .faq-layout {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+    }
+
+    .faq-sticky {
+        position: sticky;
+        top: 120px;
+    }
+
+    .faq-title {
+        font-size: clamp(32px, 4.5vw, 56px);
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        margin-top: 16px;
+    }
+
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .faq-item {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+
+    .faq-item:hover {
+        border-color: rgba(212, 175, 92, 0.25);
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .faq-item.is-active {
+        border-color: var(--gold);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .faq-trigger {
+        width: 100%;
+        padding: 24px clamp(20px, 4vw, 32px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-family: var(--sans);
+        font-size: clamp(16px, 2vw, 18px);
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .faq-trigger span {
+        transition: color 0.3s ease;
+    }
+
+    .faq-item.is-active .faq-trigger span {
+        color: var(--gold);
+    }
+
+    .faq-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.6);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+    }
+
+    .faq-item.is-active .faq-icon {
+        transform: rotate(135deg);
+        color: var(--gold);
+    }
+
+    .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+
+    .faq-content-inner {
+        padding: 0 clamp(20px, 4vw, 32px) 28px clamp(20px, 4vw, 32px);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: clamp(14px, 1.8vw, 16px);
+        line-height: 1.6;
+    }
+
+    /* ============================================================
+       08 — NEWSLETTER (Lista VIP)
+       ============================================================ */
+    .newsletter {
+        position: relative;
+        z-index: 1;
+        max-width: 1320px;
+        margin: 0 auto 80px;
+        padding: 0 clamp(24px, 5vw, 72px);
+    }
+
+    .newsletter-box {
+        background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(212,175,92,0.01) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        padding: clamp(48px, 8vh, 80px) clamp(24px, 6vw, 64px);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 16px 64px rgba(0,0,0,0.5);
+    }
+
+    .newsletter-box::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(212,175,92,0.05) 0%, rgba(0,0,0,0) 70%);
+        bottom: -150px;
+        right: -100px;
+        pointer-events: none;
+    }
+
+    .newsletter-headline {
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 16px 0 12px;
+    }
+
+    .newsletter-desc {
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 500px;
+        margin: 0 auto 36px;
+        font-size: clamp(14px, 1.8vw, 16px);
+        line-height: 1.5;
+    }
+
+    .newsletter-form {
+        max-width: 520px;
+        margin: 0 auto;
+        display: flex;
+        gap: 12px;
+        position: relative;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .newsletter-input-wrapper {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    .newsletter-input {
+        width: 100%;
+        padding: 16px 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-family: var(--sans);
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .newsletter-input:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 16px rgba(212, 175, 92, 0.15);
+    }
+
+    .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .newsletter-btn {
+        padding: 0 28px;
+        background: var(--gold);
+        color: #050505;
+        border: none;
+        border-radius: 12px;
+        font-family: var(--sans);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease, box-shadow 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(212, 175, 92, 0.3);
+    }
+
+    .newsletter-btn:active {
+        transform: translateY(0);
+    }
+
+    .newsletter-feedback {
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+        right: 0;
+        font-size: 13px;
+        color: #ff5252;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .newsletter-success-state {
+        display: none;
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .success-icon-wrap {
+        width: 64px;
+        height: 64px;
+        background: rgba(212, 175, 92, 0.1);
+        border: 1px solid rgba(212, 175, 92, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--gold);
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-6px); }
+        40%, 80% { transform: translateX(6px); }
+    }
+
+    @media (max-width: 576px) {
+        .newsletter-form {
+            flex-direction: column;
+            gap: 16px;
+        }
+        .newsletter-btn {
+            padding: 16px;
+        }
+    }
 </style>
 </head>
 <body>
@@ -2826,6 +3128,135 @@
 </section>
 
 <!-- ============================================================
+     07 — FAQ (Perguntas Frequentes)
+     ============================================================ -->
+<section class="faq" id="faq">
+    <div class="faq-layout">
+        
+        <div class="faq-sticky reveal">
+            <span class="section-label">
+                <span class="num">07</span>
+                <span class="line"></span>
+                <span>Dúvidas</span>
+            </span>
+            <h2 class="faq-title">Perguntas<br>Frequentes</h2>
+        </div>
+
+        <div class="faq-list reveal" data-delay="1">
+            
+            <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false">
+                    <span>Para quem é a Jornada Mulheres Curadas?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        A Jornada é destinada a mulheres que buscam curar feridas emocionais profundas, superar ciclos de ansiedade e medo, e fortalecer sua fé cristã através de um direcionamento prático, empático e bíblico.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false">
+                    <span>Como funciona o acesso às aulas?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        O curso é 100% online. Assim que a sua inscrição for confirmada, você receberá os dados de acesso por e-mail para entrar na plataforma exclusiva de membros, onde todas as videoaulas e materiais de apoio já estão organizados para assistir quando e onde quiser.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false">
+                    <span>Por quanto tempo terei acesso ao material?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        Você terá acesso ilimitado a todas as aulas gravadas e atualizações do curso por 1 ano inteiro (365 dias) a partir da data de compra.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false">
+                    <span>O curso oferece suporte para tirar dúvidas?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        Sim! Andrea Vieira e sua equipe de suporte estão ativas no espaço de comentários de cada aula e também no nosso canal exclusivo de acompanhamento de alunas. Você terá acompanhamento integral.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false">
+                    <span>Quais as formas de pagamento disponíveis?</span>
+                    <span class="faq-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </span>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-content-inner">
+                        Você pode pagar no Cartão de Crédito (podendo parcelar em até 12x), via Pix para liberação imediata, ou Boleto Bancário. A plataforma de pagamento é 100% segura e intermediada pela Kiwify.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     08 — NEWSLETTER (Lista VIP)
+     ============================================================ -->
+<section class="newsletter" id="newsletter">
+    <div class="newsletter-box reveal">
+        
+        <!-- Default Form State -->
+        <div class="newsletter-form-state">
+            <span class="section-label" style="justify-content: center;">
+                <span class="num">08</span>
+                <span class="line"></span>
+                <span>Lista VIP</span>
+            </span>
+            <h2 class="newsletter-headline">Receba Reflexões de <span class="accent">Cura</span></h2>
+            <p class="newsletter-desc">Cadastre-se na lista exclusiva para receber reflexões semanais, materiais práticos de apoio e novidades em primeira mão direto no seu e-mail.</p>
+            
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+                <div class="newsletter-input-wrapper">
+                    <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="Seu melhor e-mail" required autocomplete="email">
+                    <div class="newsletter-feedback" id="newsletterFeedback">Por favor, insira um e-mail válido.</div>
+                </div>
+                <button type="submit" class="newsletter-btn">Inscrever-se</button>
+            </form>
+        </div>
+
+        <!-- Success Feedback State -->
+        <div class="newsletter-success-state" id="newsletterSuccess">
+            <div class="success-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2 class="newsletter-headline" style="color: var(--gold);">Inscrição Confirmada!</h2>
+            <p class="newsletter-desc" style="margin-bottom: 0;">Sua vaga na Lista VIP foi reservada. Preparamos coisas lindas para você, verifique sua caixa de entrada em instantes!</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
      FOOTER
      ============================================================ -->
 <footer class="main-footer">
@@ -2900,6 +3331,98 @@
             
             magBtn.addEventListener('mouseleave', () => {
                 magBtn.style.transform = 'translate(0px, 0px)';
+            });
+        }
+
+        // ============================================================
+        // FAQ Accordion Interaction
+        // ============================================================
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const trigger = item.querySelector('.faq-trigger');
+            const content = item.querySelector('.faq-content');
+            
+            trigger.addEventListener('click', () => {
+                const isActive = item.classList.contains('is-active');
+                
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('is-active');
+                        otherItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.faq-content').style.maxHeight = null;
+                        otherItem.querySelector('.faq-content').style.opacity = '0';
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('is-active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = null;
+                    content.style.opacity = '0';
+                } else {
+                    item.classList.add('is-active');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                }
+            });
+        });
+
+        // ============================================================
+        // Newsletter Form Handling
+        // ============================================================
+        const newsForm = document.getElementById('newsletterForm');
+        const newsEmail = document.getElementById('newsletterEmail');
+        const newsFeedback = document.getElementById('newsletterFeedback');
+        const newsSuccess = document.getElementById('newsletterSuccess');
+        const newsFormState = document.querySelector('.newsletter-form-state');
+        
+        if (newsForm) {
+            newsForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const emailVal = newsEmail.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailVal || !emailRegex.test(emailVal)) {
+                    newsEmail.style.borderColor = '#ff5252';
+                    newsEmail.style.boxShadow = '0 0 16px rgba(255, 82, 82, 0.15)';
+                    newsFeedback.style.opacity = '1';
+                    
+                    // Shake effect
+                    newsForm.style.animation = 'none';
+                    newsForm.offsetHeight; // trigger reflow
+                    newsForm.style.animation = 'shake 0.4s ease';
+                    return;
+                }
+                
+                // Success: trigger animations
+                newsEmail.style.borderColor = 'var(--gold)';
+                newsFeedback.style.opacity = '0';
+                
+                // Fade out current form state
+                newsFormState.style.opacity = '0';
+                newsFormState.style.transform = 'translateY(-10px)';
+                newsFormState.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                
+                setTimeout(() => {
+                    newsFormState.style.display = 'none';
+                    
+                    // Show success state
+                    newsSuccess.style.display = 'block';
+                    newsSuccess.offsetHeight; // trigger reflow
+                    newsSuccess.style.opacity = '1';
+                    newsSuccess.style.transform = 'scale(1)';
+                }, 400);
+            });
+            
+            // Clear errors on input
+            newsEmail.addEventListener('input', () => {
+                newsEmail.style.borderColor = '';
+                newsEmail.style.boxShadow = '';
+                newsFeedback.style.opacity = '0';
             });
         }
     })();
