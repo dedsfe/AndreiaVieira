@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mulheres Curadas — Andreia Vieira</title>
+<title>Mulheres Curadas — Andrea Vieira</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -20,7 +20,12 @@
         --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
 
-    html, body {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* For fixed nav */
+    }
+
+    body {
         background: #050505;
         color: #fff;
         font-family: var(--sans);
@@ -1735,9 +1740,305 @@
         .video-frame { aspect-ratio: 9 / 12; }
         .drop-cap { font-size: 3.6em; }
     }
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(14, 14, 14, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+    }
+    .main-nav.is-hidden {
+        transform: translateY(-100%);
+    }
+    .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 16px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-logo {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 20px;
+        color: var(--gold);
+        letter-spacing: 0.02em;
+    }
+    .nav-links {
+        display: flex;
+        gap: 32px;
+    }
+    .nav-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: color 0.3s;
+    }
+    .nav-links a:hover {
+        color: #fff;
+    }
+    .nav-btn {
+        padding: 10px 24px;
+        font-size: 13px;
+    }
+    @media (max-width: 900px) {
+        .nav-links { display: none; }
+        .nav-container { padding: 16px 20px; }
+    }
+
+    /* ============================================================
+       AWWWARDS LEVEL ENROLLMENT SECTION (06)
+       ============================================================ */
+    .aww-enrollment {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(100px, 15vh, 160px) 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--bg);
+    }
+    .aww-ambient-lights {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .aww-ambient-lights .light-1,
+    .aww-ambient-lights .light-2 {
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        border-radius: 50%;
+        filter: blur(140px);
+        opacity: 0.3;
+        animation: aww-float 15s ease-in-out infinite alternate;
+    }
+    .aww-ambient-lights .light-1 {
+        background: rgba(212, 175, 92, 0.2);
+        top: -30%;
+        left: -20%;
+    }
+    .aww-ambient-lights .light-2 {
+        background: rgba(140, 50, 65, 0.15);
+        bottom: -30%;
+        right: -20%;
+        animation-delay: -5s;
+    }
+    @keyframes aww-float {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(150px, 100px) scale(1.1); }
+    }
+
+    .aww-enrollment .section-header {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 64px;
+        text-align: center;
+    }
+    .aww-cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        perspective: 1200px;
+    }
+    .aww-card {
+        position: relative;
+        padding: 48px 32px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform-style: preserve-3d;
+        transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
+        cursor: crosshair;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+        isolation: isolate;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .aww-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+    .aww-card-content {
+        transform: translateZ(50px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        pointer-events: none;
+    }
+    .aww-card .item-icon {
+        width: 72px;
+        height: 72px;
+        background: linear-gradient(180deg, rgba(212, 175, 92, 0.1) 0%, rgba(212, 175, 92, 0.02) 100%);
+        box-shadow: inset 0 1px 0 0 rgba(212, 175, 92, 0.4), 0 8px 32px rgba(212, 175, 92, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .aww-card .item-icon svg { width: 32px; height: 32px; color: var(--gold); }
+    .aww-card .item-title { font-size: 22px; font-weight: 700; color: #fff; }
+    .aww-card .item-sub { font-size: 15px; opacity: 0.6; color: #fff; line-height: 1.5; }
+
+    /* CTA Wrapper */
+    .aww-cta-wrapper {
+        margin-top: clamp(80px, 12vh, 140px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        z-index: 1;
+    }
+    .aww-magnetic-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 64px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.03);
+        color: #fff;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .aww-magnetic-btn .btn-text {
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .aww-magnetic-btn .btn-border-glow {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: conic-gradient(from 0deg, transparent 0%, var(--gold) 20%, transparent 40%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: aww-spin 4s linear infinite;
+        opacity: 0.6;
+        transition: opacity 0.4s ease;
+    }
+    .aww-magnetic-btn:hover .btn-border-glow {
+        opacity: 1;
+        background: conic-gradient(from 0deg, transparent 0%, #fff 20%, var(--gold) 50%, transparent 70%);
+    }
+    @keyframes aww-spin {
+        100% { transform: rotate(360deg); }
+    }
+    @media (max-width: 900px) {
+        .aww-cards-wrapper { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .main-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 80px 20px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #000;
+    }
+    .footer-logo {
+        font-family: var(--serif);
+        font-size: 24px;
+        color: var(--gold);
+        margin-bottom: 24px;
+    }
+    .footer-socials {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 48px;
+    }
+    .footer-socials a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(255, 255, 255, 0.6);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .footer-socials a:hover {
+        background: var(--gold);
+        color: #000;
+        transform: translateY(-4px);
+    }
+    .footer-socials svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+    }
+    .footer-copy {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
 </style>
 </head>
 <body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="main-nav" id="main-nav">
+    <div class="nav-container">
+        <div class="nav-logo">Andrea Vieira</div>
+        <div class="nav-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#livros">Livros</a>
+            <a href="#curso">Jornada</a>
+            <a href="#mulheres-curadas">Testemunhos</a>
+        </div>
+        <div class="nav-action">
+            <a href="#inscricao" class="btn btn-primary nav-btn">Inscreva-se</a>
+        </div>
+    </div>
+</nav>
 
 <!-- ============================================================
      HERO
@@ -1773,14 +2074,14 @@
     <div class="hero-media">
         <div class="video-frame">
             <video autoplay loop muted playsinline preload="metadata">
-                <source src="assets/andreia.mp4" type="video/mp4">
+                <source src="assets/andrea.mp4" type="video/mp4">
             </video>
         </div>
     </div>
 </section>
 
 <!-- ============================================================
-     ABOUT — Andreia
+     ABOUT — Andrea
      ============================================================ -->
 <section class="about" id="sobre">
     <div class="about-inner">
@@ -1789,11 +2090,11 @@
         <div class="about-media reveal">
             <div class="image-frame">
                 <div class="image-fallback" aria-hidden="true">AV</div>
-                <img src="assets/andreia.png" alt="Andreia Vieira" loading="lazy"
+                <img src="assets/andrea.png" alt="Andrea Vieira" loading="lazy"
                      onerror="this.style.display='none'">
             </div>
             <div class="image-meta">
-                <span class="meta-name">Andreia Vieira</span>
+                <span class="meta-name">Andrea Vieira</span>
                 <span class="meta-divider"></span>
                 <span class="meta-role">Mãe · Escritora · Mentora</span>
             </div>
@@ -1829,7 +2130,7 @@
 
                 <div class="signature">
                     <span class="sig-line"></span>
-                    Andreia
+                    Andrea
                 </div>
             </div>
         </div>
@@ -2162,7 +2463,7 @@
                 </blockquote>
                 <cite class="witness-quote-cite">
                     <span class="cite-line"></span>
-                    Andreia
+                    Andrea
                 </cite>
             </figure>
 
@@ -2459,6 +2760,146 @@
                 if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
                     closeLightbox();
                 }
+            });
+        }
+    })();
+</script>
+
+<!-- ============================================================
+     ENROLLMENT (06)
+     ============================================================ -->
+<section class="aww-enrollment" id="inscricao">
+    <div class="aww-ambient-lights">
+        <div class="light-1"></div>
+        <div class="light-2"></div>
+    </div>
+
+    <div class="section-header reveal">
+        <span class="section-sub">06 &mdash; Inscrição</span>
+        <h2 class="section-title">A Jornada da <span class="accent">Cura</span></h2>
+    </div>
+
+    <div class="aww-cards-wrapper reveal" data-delay="1">
+        <div class="aww-card">
+            <div class="aww-card-content">
+                <div class="item-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="item-text">
+                    <h4 class="item-title">Aulas Gravadas</h4>
+                    <span class="item-sub">Acesso total às sessões completas do curso para você assistir no seu ritmo.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="aww-card">
+            <div class="aww-card-content">
+                <div class="item-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <div class="item-text">
+                    <h4 class="item-title">Manual de Cura</h4>
+                    <span class="item-sub">Material de apoio em PDF para acompanhar e aprofundar sua jornada de transformação.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="aww-card">
+            <div class="aww-card-content">
+                <div class="item-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <div class="item-text">
+                    <h4 class="item-title">Certificado</h4>
+                    <span class="item-sub">Certificado de conclusão emitido automaticamente ao final do curso.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aww-cta-wrapper reveal" data-delay="3">
+        <a href="https://kiwify.app/3fMlAHY" class="aww-magnetic-btn" target="_blank" rel="noopener">
+            <span class="btn-text">Quero ser curada</span>
+            <div class="btn-border-glow"></div>
+        </a>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="main-footer">
+    <div class="footer-logo">Andrea Vieira</div>
+    <div class="footer-socials">
+        <a href="#" aria-label="Instagram" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="mailto:contato@andreavieira.com" aria-label="E-mail">
+            <svg viewBox="0 0 24 24"><path d="M12 12.713l11.985-8.71c-.096-1.127-1.026-2.003-2.18-2.003H2.195c-1.154 0-2.084.876-2.18 2.003L12 12.713zm0 2.593L.015 6.643v13.162c0 1.196.993 2.195 2.18 2.195h19.61c1.187 0 2.18-.999 2.18-2.195V6.643L12 15.306z"/></svg>
+        </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Andrea Vieira. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+    // ============================================================
+    // Awwwards Interactions & Nav
+    // ============================================================
+    (function(){
+        // Hide/Show Nav on scroll
+        const nav = document.getElementById('main-nav');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down
+                nav.classList.add('is-hidden');
+            } else {
+                // Scrolling up
+                nav.classList.remove('is-hidden');
+            }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // 3D Tilt for cards
+        const cards = document.querySelectorAll('.aww-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Magnetic Button
+        const magBtn = document.querySelector('.aww-magnetic-btn');
+        if(magBtn) {
+            magBtn.addEventListener('mousemove', (e) => {
+                const rect = magBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                magBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            
+            magBtn.addEventListener('mouseleave', () => {
+                magBtn.style.transform = 'translate(0px, 0px)';
             });
         }
     })();
