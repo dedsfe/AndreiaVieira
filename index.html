@@ -1193,7 +1193,6 @@
     }
 
     .witness-item {
-        --parallax-y: 0px;
         position: relative;
         overflow: hidden;
         border-radius: 4px;
@@ -1202,17 +1201,19 @@
         box-shadow:
             inset 0 0 0 1px rgba(255, 255, 255, 0.06),
             0 18px 40px rgba(0, 0, 0, 0.4);
-        transform: translate3d(0, var(--parallax-y), 0);
-        transition:
-            transform 0.2s linear,
-            box-shadow 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
-        will-change: transform;
+        transition: box-shadow 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
     }
 
     .witness-frame {
+        --parallax-y: 0px;
         position: absolute;
-        inset: 0;
+        /* Buffer of 28px each side keeps the parallax translate safely
+           inside the item — no black bars when frame moves. */
+        inset: -28px;
         overflow: hidden;
+        transform: translate3d(0, var(--parallax-y), 0);
+        transition: transform 0.2s linear;
+        will-change: transform;
     }
 
     .witness-frame img {
@@ -1386,28 +1387,15 @@
     .w-6     { grid-column: 7 / 10; grid-row: 3; }
     .w-7     { grid-column: 10 / 13;grid-row: 3; }
 
-    /* Reveal with clip-path mask + parallax-aware transform */
-    .witness-item.reveal {
-        opacity: 1;
-        clip-path: inset(0 0 100% 0);
-        transform: translate3d(0, var(--parallax-y), 0);
-        transition:
-            transform 0.2s linear,
-            clip-path 1.1s cubic-bezier(0.2, 0.6, 0.2, 1),
-            box-shadow 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
-    }
-    .witness-item.reveal.is-visible {
-        opacity: 1;
-        clip-path: inset(0 0 0 0);
-    }
-
-    .witness-item.reveal[data-delay="1"] { transition-delay: 0s, 0.08s, 0s; }
-    .witness-item.reveal[data-delay="2"] { transition-delay: 0s, 0.16s, 0s; }
-    .witness-item.reveal[data-delay="3"] { transition-delay: 0s, 0.24s, 0s; }
-    .witness-item.reveal[data-delay="4"] { transition-delay: 0s, 0.32s, 0s; }
-    .witness-item.reveal[data-delay="5"] { transition-delay: 0s, 0.40s, 0s; }
-    .witness-item.reveal[data-delay="6"] { transition-delay: 0s, 0.48s, 0s; }
-    .witness-item.reveal[data-delay="7"] { transition-delay: 0s, 0.56s, 0s; }
+    /* Stagger reveals so the grid "builds" as the section enters view.
+       Uses the global .reveal opacity+translateY (Safari-safe). */
+    .witness-item.reveal[data-delay="1"] { transition-delay: 0.08s; }
+    .witness-item.reveal[data-delay="2"] { transition-delay: 0.16s; }
+    .witness-item.reveal[data-delay="3"] { transition-delay: 0.24s; }
+    .witness-item.reveal[data-delay="4"] { transition-delay: 0.32s; }
+    .witness-item.reveal[data-delay="5"] { transition-delay: 0.40s; }
+    .witness-item.reveal[data-delay="6"] { transition-delay: 0.48s; }
+    .witness-item.reveal[data-delay="7"] { transition-delay: 0.56s; }
 
     /* ===== Custom cursor ===== */
     .witnesses-cursor {
@@ -1489,10 +1477,9 @@
 
     /* Respect reduced-motion preferences */
     @media (prefers-reduced-motion: reduce) {
-        .marquee-track       { animation: none; }
-        .witness-item        { transform: none !important; transition: none; }
-        .witness-item.reveal { clip-path: inset(0); }
-        .witnesses-cursor    { display: none; }
+        .marquee-track    { animation: none; }
+        .witness-frame    { transform: none !important; transition: none; }
+        .witnesses-cursor { display: none; }
         .witness-item:not(.w-quote) { cursor: default; }
     }
 
@@ -2185,24 +2172,26 @@
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const isTouch = window.matchMedia('(hover: none)').matches;
 
-        // --- Parallax: each item gets a slightly different Y speed ---
+        // --- Parallax: each photo frame moves at a slightly different Y speed.
+        // Applied to .witness-frame (child) so it never collides with the
+        // reveal transform on the .witness-item parent. The frame has a
+        // 28px inset buffer, so translate is capped to ±20px to stay inside. ---
         if (!prefersReducedMotion) {
-            const items = section.querySelectorAll('.witness-item');
-            // Speeds in px per 1000px of scroll (mix of + and - for organic feel)
-            const speeds = [40, -55, 35, 25, -45, 50, 30, -40];
+            const frames = section.querySelectorAll('.witness-item:not(.w-quote) .witness-frame');
+            const speeds = [22, -28, 18, 14, -25, 26, 20];
             let ticking = false;
 
             function updateParallax() {
                 const rect = section.getBoundingClientRect();
                 const viewportH = window.innerHeight;
-                // Distance from viewport center to section center (-1 to 1 range, roughly)
                 const sectionCenter = rect.top + rect.height / 2;
-                const norm = (sectionCenter - viewportH / 2) / viewportH;
+                // Cap norm so the translate stays within the frame buffer
+                const raw = (sectionCenter - viewportH / 2) / viewportH;
+                const norm = Math.max(-0.7, Math.min(0.7, raw));
 
-                items.forEach((item, i) => {
+                frames.forEach((frame, i) => {
                     const speed = speeds[i % speeds.length];
-                    const y = norm * speed;
-                    item.style.setProperty('--parallax-y', `${y}px`);
+                    frame.style.setProperty('--parallax-y', `${norm * speed}px`);
                 });
 
                 ticking = false;
