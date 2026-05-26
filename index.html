@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mulheres Curadas — Andreia Vieira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --gold-light: #E8C775;
+        --gold:       #D4AF5C;
+        --gold-deep:  #B68B3F;
+        --gold-shadow: rgba(180, 138, 60, 0.35);
+
+        --serif: "Instrument Serif", "Times New Roman", serif;
+        --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html, body {
+        background: #050505;
+        color: #fff;
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background:
+            radial-gradient(60% 50% at 20% 30%, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0) 60%),
+            radial-gradient(50% 40% at 80% 70%, rgba(255,255,255,0.025) 0%, rgba(0,0,0,0) 65%);
+        pointer-events: none;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+        position: relative;
+        z-index: 1;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: clamp(100px, 14vh, 160px) clamp(24px, 5vw, 72px) clamp(80px, 12vh, 140px);
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(40px, 6vw, 88px);
+        align-items: center;
+    }
+
+    .hero-content { max-width: 600px; }
+
+    .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.48);
+        margin-bottom: 36px;
+    }
+
+    .tag-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 12px rgba(212, 175, 92, 0.6);
+    }
+
+    h1 {
+        font-size: clamp(40px, 5.6vw, 72px);
+        font-weight: 800;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        color: #fff;
+        margin-bottom: 24px;
+    }
+
+    /* Editorial italic serif accent — replaces Inter italic */
+    .accent {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 400;
+        color: var(--gold);
+        letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+        font-size: clamp(15px, 1.15vw, 18px);
+        line-height: 1.6;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.62);
+        max-width: 500px;
+        margin-bottom: 44px;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+    /* Buttons */
+    .btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 30px;
+        font-family: inherit;
+        font-size: 15.5px;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        text-decoration: none;
+        line-height: 1;
+        isolation: isolate;
+        transition:
+            transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn .arrow { display: inline-block; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+    .btn:hover .arrow { transform: translateX(4px); }
+    .btn:active       { transform: translateY(1px); transition-duration: 0.08s; }
+
+    .btn-primary {
+        color: #1c1305;
+        background:
+            linear-gradient(180deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0) 38%, rgba(0,0,0,0.10) 100%),
+            linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+        box-shadow:
+            inset 0 1px 0 0 rgba(255,255,255,0.55),
+            inset 0 -1px 0 0 rgba(0,0,0,0.25),
+            inset 0 0 0 1px rgba(255,255,255,0.12),
+            0 10px 28px var(--gold-shadow),
+            0 3px 8px rgba(0,0,0,0.35);
+    }
+
+    .btn-primary::after {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 999px;
+        background: radial-gradient(60% 80% at 50% 100%, rgba(232,199,117,0.35) 0%, rgba(232,199,117,0) 70%);
+        filter: blur(10px);
+        z-index: -1;
+        opacity: 0.7;
+        transition: opacity 0.35s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        background:
+            linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.08) 100%),
+            linear-gradient(135deg, #F0D285 0%, #DDB969 50%, #C39749 100%);
+        box-shadow:
+            inset 0 1px 0 0 rgba(255,255,255,0.65),
+            inset 0 -1px 0 0 rgba(0,0,0,0.25),
+            inset 0 0 0 1px rgba(255,255,255,0.18),
+            0 14px 36px var(--gold-shadow),
+            0 4px 12px rgba(0,0,0,0.4);
+    }
+    .btn-primary:hover::after { opacity: 1; }
+
+    .btn-secondary {
+        color: rgba(255,255,255,0.92);
+        background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+        box-shadow:
+            inset 0 0 0 1px rgba(255,255,255,0.16),
+            inset 0 1px 0 0 rgba(255,255,255,0.10),
+            0 1px 2px rgba(0,0,0,0.2);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+    .btn-secondary:hover {
+        color: #fff;
+        background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
+        box-shadow:
+            inset 0 0 0 1px rgba(255,255,255,0.28),
+            inset 0 1px 0 0 rgba(255,255,255,0.18),
+            0 4px 14px rgba(0,0,0,0.3);
+        transform: translateY(-1px);
+    }
+
+    /* Video */
+    .hero-media { position: relative; justify-self: end; width: 100%; max-width: 480px; }
+
+    .video-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        border-radius: 24px;
+        overflow: hidden;
+        background:
+            radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 60%),
+            linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+        box-shadow:
+            inset 0 0 0 1px rgba(255,255,255,0.08),
+            0 30px 80px rgba(0,0,0,0.55),
+            0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .video-frame video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .video-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+            linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%),
+            radial-gradient(120% 100% at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.3) 100%);
+        border-radius: inherit;
+    }
+
+    /* ============================================================
+       ABOUT SECTION
+       Editorial: image left with caption, text right with section
+       label, large mixed-typography headline, lead paragraph with
+       drop cap, signature line at end.
+       ============================================================ */
+    .about {
+        position: relative;
+        z-index: 1;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: clamp(80px, 14vh, 160px) clamp(24px, 5vw, 72px);
+    }
+
+    .about-inner {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: clamp(48px, 7vw, 110px);
+        align-items: center;
+    }
+
+    /* Left: image + meta */
+    .about-media { position: relative; max-width: 480px; }
+
+    .image-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        border-radius: 18px;
+        overflow: hidden;
+        background:
+            radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0) 60%),
+            linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+        box-shadow:
+            inset 0 0 0 1px rgba(255,255,255,0.08),
+            0 30px 80px rgba(0,0,0,0.55),
+            0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .image-frame img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        z-index: 2;
+    }
+
+    /* Initials shown when no image present */
+    .image-fallback {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(80px, 10vw, 130px);
+        font-weight: 400;
+        color: rgba(212, 175, 92, 0.35);
+        letter-spacing: -0.04em;
+        z-index: 1;
+    }
+
+    /* Thin gold accent line at bottom of image */
+    .image-frame::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 40%;
+        background: linear-gradient(90deg, var(--gold) 0%, rgba(212,175,92,0) 100%);
+        z-index: 3;
+    }
+
+    .image-meta {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-top: 22px;
+        padding-left: 4px;
+    }
+
+    .meta-name {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 19px;
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1;
+    }
+
+    .meta-divider {
+        width: 24px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .meta-role {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.42);
+        line-height: 1;
+    }
+
+    /* Right: content */
+    .about-content { max-width: 580px; }
+
+    .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 40px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    .section-label .num {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .section-label .line {
+        width: 40px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .about-heading {
+        font-size: clamp(34px, 4.4vw, 60px);
+        font-weight: 700;
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+        color: #fff;
+        margin-bottom: 44px;
+    }
+
+    .about-text {
+        font-size: clamp(16px, 1.15vw, 18px);
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.72);
+    }
+
+    .about-text p + p { margin-top: 20px; }
+
+    /* Lead paragraph: slightly larger + drop cap */
+    .about-text .lead {
+        font-size: clamp(18px, 1.35vw, 21px);
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    .drop-cap {
+        float: left;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 400;
+        color: var(--gold);
+        font-size: 4.4em;
+        line-height: 0.85;
+        margin: 0.08em 0.08em 0 -0.04em;
+        letter-spacing: -0.02em;
+    }
+
+    .signature {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .signature .sig-line {
+        width: 56px;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(212,175,92,0) 0%, var(--gold) 50%, rgba(212,175,92,0) 100%);
+    }
+
+    /* ============================================================
+       BOOKS — minimalist carousel
+       Layout: cover (left) + glass info card (right). The section
+       background tints itself with the active book's palette via
+       cross-fading radial gradients.
+       ============================================================ */
+    .books {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(80px, 14vh, 160px) clamp(24px, 5vw, 72px);
+        isolation: isolate;
+    }
+
+    /* Atmospheric color layers — one per book, cross-fade */
+    .books-bg-layer {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background: #050505;
+    }
+
+    .book-bg {
+        position: absolute;
+        inset: -20%;
+        opacity: 0;
+        transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .book-bg.is-active { opacity: 0.7; }
+
+    .book-bg .book-cover {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        aspect-ratio: auto;
+        border-radius: 0;
+        box-shadow: none;
+        filter: blur(120px) saturate(180%);
+        transform: scale(1.1);
+        pointer-events: none;
+    }
+    
+    .book-bg .book-cover-img img {
+        object-fit: cover;
+    }
+
+    .books-inner {
+        position: relative;
+        max-width: 1320px;
+        margin: 0 auto;
+    }
+
+    .books-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: clamp(48px, 7vh, 80px);
+        gap: 16px;
+    }
+
+    .books-counter {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.5);
+        display: inline-flex;
+        align-items: baseline;
+        gap: 6px;
+        letter-spacing: 0.02em;
+    }
+    .books-counter .cur  { color: rgba(255, 255, 255, 0.95); font-style: italic; }
+    .books-counter .sep  { color: rgba(255, 255, 255, 0.25); }
+
+    /* Carousel slides — overlapped via grid, crossfade */
+    .carousel { position: relative; }
+
+    .slides { display: grid; }
+
+    .slide {
+        grid-column: 1;
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: clamp(40px, 6vw, 110px);
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            visibility 0s linear 0.7s;
+    }
+    .slide.is-active {
+        opacity: 1;
+        visibility: visible;
+        transition:
+            opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            visibility 0s linear 0s;
+    }
+
+    /* Sub-elements gentle stagger on enter */
+    .slide .book-cover {
+        transform: scale(0.96);
+        opacity: 0;
+        transition: transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1),
+                    opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+    }
+    .slide .book-info {
+        transform: translateX(24px);
+        opacity: 0;
+        transition: transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) 0.12s,
+                    opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) 0.12s;
+    }
+    .slide.is-active .book-cover,
+    .slide.is-active .book-info {
+        transform: none;
+        opacity: 1;
+    }
+
+    /* ===== Book cover (CSS-built; replace inner with <img> for real cover) ===== */
+    .book-cover {
+        position: relative;
+        width: 100%;
+        max-width: 340px;
+        aspect-ratio: 2 / 3;
+        border-radius: 6px;
+        overflow: hidden;
+        justify-self: end;
+        box-shadow:
+            0 60px 90px rgba(0, 0, 0, 0.5),
+            0 25px 50px rgba(0, 0, 0, 0.35),
+            0 8px 18px rgba(0, 0, 0, 0.25),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .book-cover-0 {
+        background:
+            radial-gradient(80% 60% at 30% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0,0,0,0) 60%),
+            linear-gradient(160deg, #5a2530 0%, #2c1219 100%);
+    }
+
+    /* Real cover image — replaces the CSS-built cover content */
+    .book-cover-img { background: #0a0a0a; }
+    .book-cover-img img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .book-cover-1 {
+        background:
+            radial-gradient(80% 60% at 30% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0,0,0,0) 60%),
+            linear-gradient(160deg, #2a4030 0%, #14241a 100%);
+    }
+    .book-cover-2 {
+        background:
+            radial-gradient(80% 60% at 30% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0,0,0,0) 60%),
+            linear-gradient(160deg, #1f2c4a 0%, #0d1428 100%);
+    }
+
+    .cover-inner {
+        position: absolute;
+        inset: 0;
+        padding: clamp(24px, 3vw, 34px) clamp(22px, 2.4vw, 30px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .cover-author {
+        font-size: 10.5px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    .cover-title {
+        display: flex;
+        flex-direction: column;
+        line-height: 0.95;
+        gap: 2px;
+    }
+    .cover-title .word {
+        font-size: clamp(34px, 3.6vw, 46px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: rgba(255, 255, 255, 0.96);
+    }
+    .cover-title .word-italic {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 400;
+        color: var(--gold);
+        letter-spacing: -0.01em;
+    }
+
+    .cover-foot {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .cover-foot .line {
+        width: 24px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.35);
+    }
+    .cover-foot .label {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* ===== Info (no card — pure text) ===== */
+    .book-info {
+        position: relative;
+        max-width: 520px;
+    }
+
+    .book-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.20em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 22px;
+    }
+    .book-meta .dot {
+        width: 3px; height: 3px; border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+    }
+
+    .book-title-h {
+        font-size: clamp(28px, 3.4vw, 46px);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: #fff;
+        margin-bottom: 22px;
+    }
+
+    .book-desc {
+        font-size: clamp(15px, 1.05vw, 16.5px);
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 420px;
+        margin-bottom: 32px;
+    }
+
+    .book-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(212, 175, 92, 0.30);
+        transition: color 0.35s ease, border-color 0.35s ease;
+    }
+    .book-link:hover {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold);
+    }
+    .book-link .arrow { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+    .book-link:hover .arrow { transform: translateX(4px); }
+
+    /* ===== Controls — refined glass arrows + dots ===== */
+    .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        margin-top: clamp(48px, 7vh, 80px);
+    }
+
+    .ctrl-arrow {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.07) 0%,
+            rgba(255, 255, 255, 0.02) 100%);
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.20),
+            0 4px 14px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: rgba(255, 255, 255, 0.88);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    background 0.35s ease,
+                    box-shadow 0.35s ease;
+    }
+    .ctrl-arrow:hover {
+        transform: translateY(-1px);
+        background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.04) 100%);
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.28),
+            0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+    .ctrl-arrow svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .dots {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.22);
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    background 0.4s ease,
+                    box-shadow 0.4s ease;
+    }
+    .dot:hover { background: rgba(255, 255, 255, 0.45); }
+    .dot.is-active {
+        width: 28px;
+        border-radius: 999px;
+        background: var(--gold);
+        box-shadow: 0 0 14px rgba(212, 175, 92, 0.5);
+    }
+
+    /* ============================================================
+       COURSE — main offer (Mulheres Curadas)
+       ============================================================ */
+    .course {
+        position: relative;
+        z-index: 1;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: clamp(80px, 14vh, 160px) clamp(24px, 5vw, 72px);
+    }
+
+    .course-header {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .course-header .section-label { margin-bottom: 40px; }
+
+    .course-headline {
+        font-size: clamp(38px, 5.4vw, 68px);
+        font-weight: 700;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        color: #fff;
+        margin-bottom: 28px;
+    }
+
+    .course-lead {
+        font-size: clamp(15px, 1.15vw, 18px);
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    /* ===== Gallery — Awwwards-style asymmetric bento ===== */
+    .gallery {
+        margin-top: clamp(72px, 10vh, 120px);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: clamp(220px, 26vw, 340px) clamp(220px, 26vw, 340px);
+        gap: clamp(12px, 1.2vw, 18px);
+    }
+
+    .gallery-item {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 20px;
+        cursor: pointer;
+        isolation: isolate;
+
+        /* placeholder gradient — visible until image loads */
+        background:
+            radial-gradient(80% 60% at 30% 30%, rgba(255, 255, 255, 0.04) 0%, rgba(0,0,0,0) 70%),
+            linear-gradient(160deg, #14161b 0%, #08090c 100%);
+    }
+
+    /* Subtle per-tile color shift so placeholders don't look identical */
+    .gallery-item-1 {
+        background:
+            radial-gradient(70% 60% at 30% 30%, rgba(180, 110, 90, 0.18) 0%, rgba(0,0,0,0) 70%),
+            linear-gradient(160deg, #1a1310 0%, #0b0808 100%);
+    }
+    .gallery-item-2 {
+        background:
+            radial-gradient(80% 60% at 70% 30%, rgba(120, 130, 160, 0.18) 0%, rgba(0,0,0,0) 70%),
+            linear-gradient(160deg, #14161d 0%, #0a0b10 100%);
+    }
+    .gallery-item-3 {
+        background:
+            radial-gradient(70% 70% at 50% 30%, rgba(160, 130, 90, 0.16) 0%, rgba(0,0,0,0) 70%),
+            linear-gradient(160deg, #18140d 0%, #0c0a06 100%);
+    }
+    .gallery-item-4 {
+        background:
+            radial-gradient(70% 60% at 30% 30%, rgba(110, 100, 150, 0.16) 0%, rgba(0,0,0,0) 70%),
+            linear-gradient(160deg, #14111b 0%, #08070d 100%);
+    }
+
+    /* Bento positions */
+    .gallery-item-1 { grid-column: 1; grid-row: 1 / 3; }      /* tall portrait left */
+    .gallery-item-2 { grid-column: 2 / 4; grid-row: 1; }      /* wide top right */
+    .gallery-item-3 { grid-column: 2; grid-row: 2; }          /* square middle bottom */
+    .gallery-item-4 { grid-column: 3; grid-row: 2; }          /* square right bottom */
+
+    .gallery-item img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        transition:
+            transform 1.1s cubic-bezier(0.2, 0.6, 0.2, 1),
+            filter 0.6s ease;
+        will-change: transform;
+    }
+
+    /* Inner ring — turns gold on hover */
+    .gallery-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        border-radius: inherit;
+        pointer-events: none;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        transition: box-shadow 0.5s ease;
+    }
+
+    /* Bottom gradient — keeps the label legible */
+    .gallery-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(180deg,
+            rgba(0,0,0,0) 45%,
+            rgba(0,0,0,0.55) 100%);
+        opacity: 0.55;
+        transition: opacity 0.5s ease;
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        left: clamp(18px, 1.6vw, 26px);
+        bottom: clamp(16px, 1.4vw, 22px);
+        z-index: 4;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.96);
+    }
+    .gallery-label::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--gold);
+    }
+
+    /* Hover */
+    .gallery-item:hover img {
+        transform: scale(1.05);
+        filter: brightness(1.04) saturate(1.08);
+    }
+    .gallery-item:hover::before {
+        box-shadow: inset 0 0 0 1px rgba(212, 175, 92, 0.34);
+    }
+    .gallery-item:hover::after { opacity: 0.95; }
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Stagger fade-up on reveal */
+    .gallery-item.reveal[data-delay="1"] { transition-delay: 0.10s; }
+    .gallery-item.reveal[data-delay="2"] { transition-delay: 0.20s; }
+    .gallery-item.reveal[data-delay="3"] { transition-delay: 0.30s; }
+
+    /* ===== Journey steps — editorial alternating magazine layout =====
+       Each step is a horizontal "spread" with a massive italic gold
+       number on one side and text on the other, meeting at a thin
+       gold divider that stretches in from the center. Sides alternate
+       per step (zig-zag), like a magazine spread. */
+    .journey-steps {
+        margin-top: clamp(64px, 9vh, 110px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .step {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: clamp(28px, 4vw, 72px);
+        align-items: center;
+        padding: clamp(56px, 9vh, 110px) 0;
+        position: relative;
+    }
+
+    .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 12%;
+        right: 12%;
+        bottom: 0;
+        height: 1px;
+        background: linear-gradient(90deg,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0.10) 50%,
+            rgba(255,255,255,0) 100%);
+    }
+
+    /* Default: text left, number right (odd rows) */
+    .step-content {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: right;
+        justify-self: end;
+        max-width: 420px;
+    }
+
+    .step-divider {
+        grid-column: 2;
+        grid-row: 1;
+        width: clamp(40px, 6vw, 100px);
+        height: 1px;
+        background: linear-gradient(90deg,
+            rgba(212,175,92,0) 0%,
+            rgba(212,175,92,0.65) 50%,
+            rgba(212,175,92,0) 100%);
+        transform: scaleX(0);
+        transition: transform 0.95s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+    }
+
+    .step-number {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: start;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(140px, 22vw, 280px);
+        line-height: 0.78;
+        color: var(--gold);
+        letter-spacing: -0.06em;
+        user-select: none;
+        text-shadow: 0 0 60px rgba(212, 175, 92, 0.12);
+    }
+
+    /* Even rows: number on left, text on right (zig-zag) */
+    .step:nth-child(even) .step-content {
+        grid-column: 3;
+        text-align: left;
+        justify-self: start;
+    }
+    .step:nth-child(even) .step-number {
+        grid-column: 1;
+        justify-self: end;
+        text-align: right;
+    }
+
+    .step-title {
+        font-size: clamp(26px, 3.2vw, 42px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+        color: #fff;
+        margin-bottom: 18px;
+    }
+
+    .step-desc {
+        font-size: clamp(15px, 1.05vw, 17px);
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.62);
+    }
+
+    /* Reveal — children slide in from opposite sides, meeting at divider */
+    .step .step-content,
+    .step .step-number {
+        opacity: 0;
+        transition:
+            opacity 0.95s cubic-bezier(0.2, 0.6, 0.2, 1),
+            transform 0.95s cubic-bezier(0.2, 0.6, 0.2, 1);
+    }
+    .step .step-content { transform: translateX(-36px); }
+    .step .step-number  { transform: translateX(36px); transition-delay: 0.18s; }
+
+    .step:nth-child(even) .step-content { transform: translateX(36px); }
+    .step:nth-child(even) .step-number  { transform: translateX(-36px); }
+
+    .step.is-visible .step-content,
+    .step.is-visible .step-number {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .step.is-visible .step-divider {
+        transform: scaleX(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .step .step-content,
+        .step .step-number,
+        .step .step-divider {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+    }
+
+    /* ============================================================
+       AWWWARDS LEVEL ENROLLMENT SECTION
+       ============================================================ */
+    .aww-enrollment {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .aww-ambient-lights {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .aww-ambient-lights .light-1,
+    .aww-ambient-lights .light-2 {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        filter: blur(140px);
+        opacity: 0.4;
+        animation: aww-float 15s ease-in-out infinite alternate;
+    }
+    .aww-ambient-lights .light-1 {
+        background: rgba(212, 175, 92, 0.25);
+        top: -20%;
+        left: -10%;
+    }
+    .aww-ambient-lights .light-2 {
+        background: rgba(140, 50, 65, 0.2);
+        bottom: -20%;
+        right: -10%;
+        animation-delay: -5s;
+    }
+
+    @keyframes aww-float {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(100px, 50px) scale(1.1); }
+    }
+
+    .aww-cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: clamp(64px, 8vh, 100px);
+        perspective: 1000px;
+    }
+
+    .aww-card {
+        position: relative;
+        padding: 40px 32px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform-style: preserve-3d;
+        transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
+        cursor: crosshair;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+        isolation: isolate;
+    }
+
+    .aww-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    .aww-card-content {
+        transform: translateZ(40px); /* 3D pop out */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        pointer-events: none;
+    }
+
+    .aww-card .item-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(180deg, rgba(212, 175, 92, 0.1) 0%, rgba(212, 175, 92, 0.02) 100%);
+        box-shadow: inset 0 1px 0 0 rgba(212, 175, 92, 0.4), 0 8px 32px rgba(212, 175, 92, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .aww-card .item-icon svg { width: 28px; height: 28px; color: var(--gold); }
+    
+    .aww-card .item-title { font-size: 20px; font-weight: 700; }
+    .aww-card .item-sub { font-size: 14px; opacity: 0.6; }
+
+    /* CTA Wrapper */
+    .aww-cta-wrapper {
+        margin-top: clamp(80px, 12vh, 140px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aww-magnetic-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 64px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.03);
+        color: #fff;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 17px;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .aww-magnetic-btn .btn-text {
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .aww-magnetic-btn .btn-border-glow {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: conic-gradient(from 0deg, transparent 0%, var(--gold) 20%, transparent 40%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: aww-spin 4s linear infinite;
+        opacity: 0.6;
+        transition: opacity 0.4s ease;
+    }
+    
+    .aww-magnetic-btn:hover .btn-border-glow {
+        opacity: 1;
+        background: conic-gradient(from 0deg, transparent 0%, #fff 20%, var(--gold) 50%, transparent 70%);
+    }
+
+    @keyframes aww-spin {
+        100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 900px) {
+        .aww-cards-wrapper { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       SCROLL REVEAL — fade up
+       ============================================================ */
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 1s cubic-bezier(0.2, 0.6, 0.2, 1),
+            transform 1s cubic-bezier(0.2, 0.6, 0.2, 1);
+        will-change: opacity, transform;
+    }
+    .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .reveal[data-delay="1"] { transition-delay: 0.12s; }
+    .reveal[data-delay="2"] { transition-delay: 0.24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reveal, .reveal.is-visible { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 56px;
+            padding-top: clamp(80px, 12vh, 120px);
+        }
+        .hero-media { justify-self: center; max-width: 420px; }
+
+        .about-inner {
+            grid-template-columns: 1fr;
+            gap: 56px;
+        }
+        .about-media { margin: 0 auto; }
+
+        .slide {
+            grid-template-columns: 1fr;
+            gap: 48px;
+            justify-items: center;
+        }
+        .book-cover { justify-self: center; }
+        .book-info { max-width: 100%; }
+        .books-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+        .included-list { grid-template-columns: 1fr; gap: 32px; }
+
+        .step,
+        .step:nth-child(even) {
+            grid-template-columns: 1fr;
+            gap: 18px;
+            padding: 56px 0;
+        }
+        .step .step-content,
+        .step:nth-child(even) .step-content {
+            grid-column: 1;
+            grid-row: 2;
+            text-align: left;
+            justify-self: start;
+            max-width: 100%;
+        }
+        .step .step-number,
+        .step:nth-child(even) .step-number {
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: start;
+            text-align: left;
+            font-size: clamp(110px, 30vw, 180px);
+        }
+        .step-divider { display: none; }
+        .step .step-content,
+        .step:nth-child(even) .step-content { transform: translateY(20px); }
+        .step .step-number,
+        .step:nth-child(even) .step-number { transform: translateY(20px); }
+        .step.is-visible .step-content,
+        .step.is-visible .step-number { transform: translateY(0); }
+
+        .gallery {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: clamp(280px, 60vw, 380px) clamp(200px, 42vw, 280px) clamp(200px, 42vw, 280px);
+            gap: 12px;
+        }
+        .gallery-item-1 { grid-column: 1 / 3; grid-row: 1; }
+        .gallery-item-2 { grid-column: 1 / 3; grid-row: 2; }
+        .gallery-item-3 { grid-column: 1; grid-row: 3; }
+        .gallery-item-4 { grid-column: 2; grid-row: 3; }
+        .included-item { justify-content: flex-start; padding: 0; }
+        .included-item:not(:last-child)::after {
+            right: auto; top: auto; left: 0; bottom: -16px;
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.14) 50%,
+                rgba(255,255,255,0) 100%);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .actions { width: 100%; }
+        .btn { padding: 16px 24px; font-size: 14.5px; }
+        .btn-primary, .btn-secondary { flex: 1; justify-content: center; }
+        .video-frame { aspect-ratio: 9 / 12; }
+        .drop-cap { font-size: 3.6em; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">
+            <span class="tag-dot"></span>
+            Mulheres Curadas
+        </span>
+
+        <h1>
+            Cure suas emoções,<br>
+            fortaleça sua <span class="accent">fé</span>.
+        </h1>
+
+        <p class="subtitle">
+            Uma jornada para restaurar feridas, vencer a ansiedade e descobrir
+            uma nova identidade em Deus.
+        </p>
+
+        <div class="actions">
+            <a href="#" class="btn btn-primary">
+                Quero ser curada
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#sobre" class="btn btn-secondary">
+                Sobre o curso
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-media">
+        <div class="video-frame">
+            <video autoplay loop muted playsinline preload="metadata">
+                <source src="assets/andreia.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT — Andreia
+     ============================================================ -->
+<section class="about" id="sobre">
+    <div class="about-inner">
+
+        <!-- Image -->
+        <div class="about-media reveal">
+            <div class="image-frame">
+                <div class="image-fallback" aria-hidden="true">AV</div>
+                <img src="assets/andreia.png" alt="Andreia Vieira" loading="lazy"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="image-meta">
+                <span class="meta-name">Andreia Vieira</span>
+                <span class="meta-divider"></span>
+                <span class="meta-role">Mãe · Escritora · Mentora</span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content">
+            <span class="section-label reveal">
+                <span class="num">01</span>
+                <span class="line"></span>
+                <span>Sobre</span>
+            </span>
+
+            <h2 class="about-heading reveal" data-delay="1">
+                Uma jornada de <span class="accent">dor</span>,
+                cura<br>e <span class="accent">propósito</span>.
+            </h2>
+
+            <div class="about-text reveal" data-delay="2">
+                <p class="lead">
+                    <span class="drop-cap">A</span>os quase 50 anos, descobri que a fé é
+                    o que carrega quando tudo o mais cede.
+                </p>
+                <p>
+                    Enfrentei vales profundos. Vi minha vida ser virada do avesso 
+                    por dores e provações que pareciam insuportáveis. E no meio dessas tempestades, 
+                    encontrei o que ninguém pode tirar: o propósito que Deus tem para mim.
+                </p>
+                <p>
+                    Hoje, escrevo livros e ensino mulheres que &mdash; como eu um dia &mdash;
+                    se perguntam se ainda há caminho. Há. E ele começa por dentro.
+                </p>
+
+                <div class="signature">
+                    <span class="sig-line"></span>
+                    Andreia
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     BOOKS — minimalist carousel
+     ============================================================ -->
+<section class="books" id="livros">
+    <div class="books-bg-layer">
+        <!-- Generates dynamically via JS to match current cover -->
+    </div>
+
+    <div class="books-inner">
+
+        <div class="books-header">
+            <span class="section-label reveal">
+                <span class="num">02</span>
+                <span class="line"></span>
+                <span>Livros</span>
+            </span>
+            <span class="books-counter reveal">
+                <span class="cur" id="bookCur">01</span>
+                <span class="sep">/</span>
+                <span class="total">03</span>
+            </span>
+        </div>
+
+        <div class="carousel" id="carousel">
+            <div class="slides">
+
+                <!-- Slide 1 -->
+                <article class="slide is-active" data-idx="0">
+                    <div class="book-cover book-cover-img">
+                        <img src="assets/livro-1.png" alt="Caminho Para Cura — Volume I">
+                    </div>
+
+                    <div class="book-info">
+                        <span class="book-meta">
+                            Cura emocional
+                            <span class="dot"></span>
+                            Volume I
+                        </span>
+                        <h3 class="book-title-h">
+                            Caminho Para a <span class="accent">Cura</span>
+                        </h3>
+                        <p class="book-desc">
+                            O primeiro passo de uma jornada de restauração interior &mdash;
+                            para mulheres que decidiram que não vão atravessar a dor sozinhas.
+                        </p>
+                        <a href="#" class="book-link">
+                            Conhecer o livro
+                            <span class="arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Slide 2 -->
+                <article class="slide" data-idx="1">
+                    <div class="book-cover book-cover-1">
+                        <div class="cover-inner">
+                            <span class="cover-author">Andreia Vieira</span>
+                            <div class="cover-title">
+                                <span class="word">A Fé que</span>
+                                <span class="word word-italic">Carrega</span>
+                            </div>
+                            <div class="cover-foot">
+                                <span class="line"></span>
+                                <span class="label">Volume II</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-info">
+                        <span class="book-meta">
+                            Devocional
+                            <span class="dot"></span>
+                            2025
+                        </span>
+                        <h3 class="book-title-h">
+                            A Fé que <span class="accent">Carrega</span>
+                        </h3>
+                        <p class="book-desc">
+                            Reflexões diárias para mulheres que aprenderam que a fé não
+                            elimina o vale &mdash; ela atravessa com você.
+                        </p>
+                        <a href="#" class="book-link">
+                            Conhecer o livro
+                            <span class="arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Slide 3 -->
+                <article class="slide" data-idx="2">
+                    <div class="book-cover book-cover-2">
+                        <div class="cover-inner">
+                            <span class="cover-author">Andreia Vieira</span>
+                            <div class="cover-title">
+                                <span class="word">Quando Tudo</span>
+                                <span class="word word-italic">Cede</span>
+                            </div>
+                            <div class="cover-foot">
+                                <span class="line"></span>
+                                <span class="label">Volume III</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-info">
+                        <span class="book-meta">
+                            Memórias
+                            <span class="dot"></span>
+                            2026
+                        </span>
+                        <h3 class="book-title-h">
+                            Quando Tudo <span class="accent">Cede</span>
+                        </h3>
+                        <p class="book-desc">
+                            O testemunho de uma mulher que perdeu quase tudo &mdash; e
+                            descobriu o que não se pode perder. Uma história de propósito.
+                        </p>
+                        <a href="#" class="book-link">
+                            Conhecer o livro
+                            <span class="arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="carousel-controls">
+                <button class="ctrl-arrow" data-action="prev" aria-label="Livro anterior">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 4l-8 8 8 8 1.4-1.4L11.3 12l5.6-6.6z"/></svg>
+                </button>
+                <div class="dots">
+                    <button class="dot is-active" data-idx="0" aria-label="Livro 1"></button>
+                    <button class="dot" data-idx="1" aria-label="Livro 2"></button>
+                    <button class="dot" data-idx="2" aria-label="Livro 3"></button>
+                </div>
+                <button class="ctrl-arrow" data-action="next" aria-label="Próximo livro">
+                    <svg viewBox="0 0 24 24"><path d="M8.5 4l8 8-8 8L7.1 18.6 12.7 12 7.1 5.4z"/></svg>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     03 — Mulheres Curadas (course intro + gallery)
+     ============================================================ -->
+<section class="course" id="curso">
+    <div class="course-header">
+        <span class="section-label reveal">
+            <span class="num">03</span>
+            <span class="line"></span>
+            <span>Mulheres Curadas</span>
+        </span>
+
+        <h2 class="course-headline reveal" data-delay="1">
+            Uma decisão muda<br>
+            uma <span class="accent">história</span>.
+        </h2>
+
+        <p class="course-lead reveal" data-delay="2">
+            Uma jornada de 12 aulas que reúne ensinamentos bíblicos e princípios
+            de inteligência emocional &mdash; para mulheres que querem restaurar
+            suas emoções e fortalecer sua fé.
+        </p>
+    </div>
+
+    <div class="gallery">
+        <a href="#" class="gallery-item gallery-item-1 reveal">
+            <img src="assets/jornada.jpg" alt="A jornada" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay">
+                <span class="gallery-label">A Jornada</span>
+            </div>
+        </a>
+
+        <a href="#" class="gallery-item gallery-item-2 reveal" data-delay="1">
+            <img src="assets/estudo.jpg" alt="Estudo" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay">
+                <span class="gallery-label">Estudo</span>
+            </div>
+        </a>
+
+        <a href="#" class="gallery-item gallery-item-3 reveal" data-delay="2">
+            <img src="assets/cura.jpg" alt="Cura" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay">
+                <span class="gallery-label">Cura</span>
+            </div>
+        </a>
+
+        <a href="#" class="gallery-item gallery-item-4 reveal" data-delay="3">
+            <img src="assets/comunidade.jpg" alt="Comunidade" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay">
+                <span class="gallery-label">Comunidade</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ============================================================
+     04 — A Jornada (editorial magazine steps)
+     ============================================================ -->
+<section class="course" id="aprender">
+    <div class="course-header">
+        <span class="section-label reveal">
+            <span class="num">04</span>
+            <span class="line"></span>
+            <span>A Jornada</span>
+        </span>
+
+        <h2 class="course-headline reveal" data-delay="1">
+            A cura tem um<br>
+            <span class="accent">caminho</span>.
+        </h2>
+    </div>
+
+    <div class="journey-steps">
+        <div class="step">
+            <div class="step-content">
+                <h3 class="step-title">Identifique <span class="accent">feridas</span></h3>
+                <p class="step-desc">
+                    Reconheça os padrões emocionais que limitam sua
+                    caminhada e abra espaço para a cura.
+                </p>
+            </div>
+            <span class="step-divider" aria-hidden="true"></span>
+            <span class="step-number" aria-hidden="true">01</span>
+        </div>
+
+        <div class="step">
+            <div class="step-content">
+                <h3 class="step-title">Vença a <span class="accent">ansiedade</span></h3>
+                <p class="step-desc">
+                    Princípios bíblicos e inteligência emocional para
+                    encontrar paz no presente.
+                </p>
+            </div>
+            <span class="step-divider" aria-hidden="true"></span>
+            <span class="step-number" aria-hidden="true">02</span>
+        </div>
+
+        <div class="step">
+            <div class="step-content">
+                <h3 class="step-title">Construa nova <span class="accent">identidade</span></h3>
+                <p class="step-desc">
+                    Descubra quem você é em Deus &mdash; sua história
+                    não termina onde a dor começou.
+                </p>
+            </div>
+            <span class="step-divider" aria-hidden="true"></span>
+            <span class="step-number" aria-hidden="true">03</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     05 — Inscrição (what's included + CTA)
+     ============================================================ -->
+<section class="course aww-enrollment" id="inscricao">
+    <!-- Ambient glowing lights behind everything -->
+    <div class="aww-ambient-lights">
+        <div class="light-1"></div>
+        <div class="light-2"></div>
+    </div>
+
+    <div class="course-header aww-header">
+        <span class="section-label reveal">
+            <span class="num">05</span>
+            <span class="line"></span>
+            <span>Inscrição</span>
+        </span>
+
+        <h2 class="course-headline reveal aww-title" data-delay="1">
+            Tudo pronto pra você <span class="accent">começar</span>.
+        </h2>
+    </div>
+
+    <div class="aww-cards-wrapper reveal" data-delay="2">
+        <div class="aww-card" data-tilt>
+            <div class="aww-card-border"></div>
+            <div class="aww-card-content">
+                <span class="item-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </span>
+                <div class="item-text">
+                    <span class="item-title">12 aulas gravadas</span>
+                    <span class="item-sub">Acesso no seu ritmo</span>
+                </div>
+            </div>
+        </div>
+        <div class="aww-card" data-tilt>
+            <div class="aww-card-border"></div>
+            <div class="aww-card-content">
+                <span class="item-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                <div class="item-text">
+                    <span class="item-title">Manual da Aluna</span>
+                    <span class="item-sub">PDF com perguntas guiadas</span>
+                </div>
+            </div>
+        </div>
+        <div class="aww-card" data-tilt>
+            <div class="aww-card-border"></div>
+            <div class="aww-card-content">
+                <span class="item-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </span>
+                <div class="item-text">
+                    <span class="item-title">Certificado</span>
+                    <span class="item-sub">Ao concluir o curso</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aww-cta-wrapper reveal" data-delay="3">
+        <a href="https://kiwify.app/3fMlAHY" class="btn btn-primary" target="_blank" rel="noopener">
+            Quero ser curada
+            <span class="arrow" aria-hidden="true">→</span>
+        </a>
+    </div>
+</section>
+
+<script>
+    // Scroll reveal — single, gentle fade-up
+    const reveals = document.querySelectorAll('.reveal, .step');
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+        reveals.forEach(el => io.observe(el));
+    } else {
+        reveals.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // ============================================================
+    // Books carousel
+    // ============================================================
+    (function () {
+        const carousel = document.getElementById('carousel');
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.slide');
+        const dots   = carousel.querySelectorAll('.dot');
+        const bgLayer= document.querySelector('.books-bg-layer');
+        const cur    = document.getElementById('bookCur');
+        const prev   = carousel.querySelector('[data-action="prev"]');
+        const next   = carousel.querySelector('[data-action="next"]');
+        
+        // Dynamically create backgrounds based on the covers
+        const bgs = [];
+        slides.forEach((slide, i) => {
+            const bg = document.createElement('div');
+            bg.className = `book-bg ${i === 0 ? 'is-active' : ''}`;
+            
+            // Clone the cover so the background matches exactly any image/content used
+            const coverClone = slide.querySelector('.book-cover').cloneNode(true);
+            bg.appendChild(coverClone);
+            
+            bgLayer.appendChild(bg);
+            bgs.push(bg);
+        });
+        const total  = slides.length;
+        let current  = 0;
+        let locked   = false;
+
+        function goTo(idx) {
+            if (locked) return;
+            idx = (idx + total) % total;
+            if (idx === current) return;
+            locked = true;
+
+            slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+            dots.forEach((d, i)   => d.classList.toggle('is-active', i === idx));
+            bgs.forEach((b, i)    => b.classList.toggle('is-active', i === idx));
+            if (cur) cur.textContent = String(idx + 1).padStart(2, '0');
+
+            current = idx;
+            setTimeout(() => { locked = false; }, 750);
+        }
+
+        prev.addEventListener('click', () => goTo(current - 1));
+        next.addEventListener('click', () => goTo(current + 1));
+        dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+        // Keyboard arrows when carousel is in viewport / focused
+        document.addEventListener('keydown', (e) => {
+            const rect = carousel.getBoundingClientRect();
+            const inView = rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2;
+            if (!inView) return;
+            if (e.key === 'ArrowLeft')  goTo(current - 1);
+            if (e.key === 'ArrowRight') goTo(current + 1);
+        });
+
+        // Touch swipe
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        carousel.addEventListener('touchend', (e) => {
+            const diff = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(diff) > 50) goTo(current + (diff < 0 ? 1 : -1));
+        }, { passive: true });
+        // ============================================================
+        // Awwwards Interactions
+        // ============================================================
+        
+        // 3D Tilt for cards
+        const cards = document.querySelectorAll('.aww-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+    })();
+</script>
+
+</body>
+</html>
