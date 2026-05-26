@@ -2298,82 +2298,92 @@ body.loading {
     overflow: hidden !important;
 }
 
-#preloader {
+
+.aww-preloader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--dark-bg);
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #0A0A0A;
     z-index: 9999;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    justify-content: center;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
-
-#preloader.is-hidden {
-    transform: translateY(-100%);
+.aww-preloader.is-hidden {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     pointer-events: none;
 }
 
-.preloader-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    opacity: 1;
-    transition: opacity 0.4s ease;
-}
-
-#preloader.fade-content .preloader-content {
-    opacity: 0;
-}
-
-.preloader-text {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: var(--gold);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    font-style: italic;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: preloaderReveal 1s ease forwards 0.2s;
-}
-
-.preloader-bar {
-    width: 200px;
-    height: 2px;
-    background-color: rgba(212, 175, 55, 0.2);
-    overflow: hidden;
+.preloader-books {
     position: relative;
-    border-radius: 2px;
+    width: clamp(140px, 20vw, 240px);
+    aspect-ratio: 2/3;
+    perspective: 1200px;
+    z-index: 2;
 }
 
-.preloader-progress {
+.prel-book {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background-color: var(--gold);
-    animation: preloaderLoad 2s cubic-bezier(0.8, 0, 0.2, 1) forwards 0.5s;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+    opacity: 0;
+    transform-origin: bottom center;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease;
 }
 
-@keyframes preloaderReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Initial hidden state */
+.prel-book-1 { transform: translateY(100px) rotate(-10deg) translateZ(-150px); }
+.prel-book-2 { transform: translateY(100px) rotate(0deg) translateZ(-50px); }
+.prel-book-3 { transform: translateY(100px) rotate(10deg) translateZ(50px); }
+
+/* Revealed cascade (is-loaded) */
+.aww-preloader.is-loaded .prel-book-1 {
+    opacity: 0.4;
+    transform: translateY(0) rotate(-25deg) translateX(-50%) translateZ(-200px);
+}
+.aww-preloader.is-loaded .prel-book-2 {
+    opacity: 0.8;
+    transform: translateY(-20px) rotate(-5deg) translateX(0) translateZ(-50px);
+}
+.aww-preloader.is-loaded .prel-book-3 {
+    opacity: 1;
+    transform: translateY(20px) rotate(20deg) translateX(50%) translateZ(100px);
 }
 
-@keyframes preloaderLoad {
-    0% { width: 0%; }
-    40% { width: 40%; }
-    70% { width: 70%; }
-    100% { width: 100%; }
+/* Fly away exit (is-exiting) */
+.aww-preloader.is-exiting .prel-book {
+    opacity: 0;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
 }
+.aww-preloader.is-exiting .prel-book-1 { transform: translateY(-120vh) rotate(-15deg) scale(1.5); transition-delay: 0s; }
+.aww-preloader.is-exiting .prel-book-2 { transform: translateY(-120vh) rotate(5deg) scale(1.5); transition-delay: 0.1s; }
+.aww-preloader.is-exiting .prel-book-3 { transform: translateY(-120vh) rotate(30deg) scale(1.5); transition-delay: 0.2s; }
+
+.preloader-counter {
+    position: absolute;
+    bottom: 8%;
+    right: 8%;
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 12vw, 10rem);
+    color: var(--gold);
+    line-height: 0.8;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+    mix-blend-mode: difference;
+}
+.aww-preloader.is-loaded .preloader-counter {
+    opacity: 1;
+    transform: translateY(0);
+}
+.aww-preloader.is-exiting .preloader-counter {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.prel-sym { font-size: 0.5em; opacity: 0.7; }
 
 /* ============================================================
    LENIS SMOOTH SCROLL (Base Styles)

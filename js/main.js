@@ -398,20 +398,45 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(raf);
 
-    // 2. Preloader Logic
+    
+    // 2. Awwwards Preloader Logic
     const preloader = document.getElementById("preloader");
+    const prelPerc = document.getElementById("prel-perc");
     const body = document.body;
 
-    // Minimum wait time (2.5 seconds) to ensure the animation is seen
+    // Trigger book cascade entry
     setTimeout(() => {
-        // Fade out text and progress bar
-        preloader.classList.add("fade-content");
+        preloader.classList.add("is-loaded");
+    }, 100); // slight delay to ensure CSS transitions trigger
+
+    // Custom Counter 0 -> 100
+    let progress = 0;
+    const duration = 2500; // 2.5 seconds total loading
+    const start = performance.now();
+
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - start;
+        progress = Math.min(100, (elapsed / duration) * 100);
         
-        // After content fades, slide up the preloader and unlock scroll
-        setTimeout(() => {
-            preloader.classList.add("is-hidden");
-            body.classList.remove("loading");
-            lenis.start(); // Unlock scroll
-        }, 400); // 400ms wait matches CSS transition
-    }, 2500); 
+        // Custom easing (easeOutExpo)
+        const easedProgress = progress === 100 ? 100 : 100 * (-Math.pow(2, -10 * progress / 100) + 1);
+        prelPerc.textContent = Math.floor(easedProgress);
+
+        if (progress < 100) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Reached 100%. Trigger fly-away exit!
+            setTimeout(() => {
+                preloader.classList.add("is-exiting");
+                
+                // Remove preloader from screen entirely after books fly away
+                setTimeout(() => {
+                    preloader.classList.add("is-hidden");
+                    body.classList.remove("loading");
+                    lenis.start(); // Unlock scroll
+                }, 800); // 800ms before curtain up
+            }, 300); // short wait at 100%
+        }
+    }
+    requestAnimationFrame(updateCounter);
 });
