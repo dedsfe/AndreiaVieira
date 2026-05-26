@@ -1069,168 +1069,196 @@
     }
 
     /* ============================================================
-       AWWWARDS LEVEL ENROLLMENT SECTION
+       WITNESSES — Mulheres Curadas (testimonials gallery)
+       Asymmetric editorial grid of formandas. Each photo has a
+       subtle frame, gold caption reveals on hover.
        ============================================================ */
-    .aww-enrollment {
+    .witnesses {
         position: relative;
-        overflow: hidden;
-    }
-
-    .aww-ambient-lights {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: -1;
-    }
-    .aww-ambient-lights .light-1,
-    .aww-ambient-lights .light-2 {
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        border-radius: 50%;
-        filter: blur(140px);
-        opacity: 0.4;
-        animation: aww-float 15s ease-in-out infinite alternate;
-    }
-    .aww-ambient-lights .light-1 {
-        background: rgba(212, 175, 92, 0.25);
-        top: -20%;
-        left: -10%;
-    }
-    .aww-ambient-lights .light-2 {
-        background: rgba(140, 50, 65, 0.2);
-        bottom: -20%;
-        right: -10%;
-        animation-delay: -5s;
-    }
-
-    @keyframes aww-float {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(100px, 50px) scale(1.1); }
-    }
-
-    .aww-cards-wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        margin-top: clamp(64px, 8vh, 100px);
-        perspective: 1000px;
-    }
-
-    .aww-card {
-        position: relative;
-        padding: 40px 32px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        transform-style: preserve-3d;
-        transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
-        cursor: crosshair;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 24px;
+        padding: clamp(80px, 14vh, 160px) clamp(24px, 5vw, 72px);
         isolation: isolate;
     }
 
-    .aww-card::before {
+    /* Ambient glow behind the gallery — gives the section depth */
+    .witnesses::before {
         content: "";
         position: absolute;
         inset: 0;
-        border-radius: inherit;
-        padding: 1px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
+        z-index: -1;
+        background:
+            radial-gradient(50% 40% at 80% 20%, rgba(212, 175, 92, 0.08) 0%, rgba(0,0,0,0) 60%),
+            radial-gradient(45% 35% at 15% 85%, rgba(212, 175, 92, 0.05) 0%, rgba(0,0,0,0) 65%);
         pointer-events: none;
     }
 
-    .aww-card-content {
-        transform: translateZ(40px); /* 3D pop out */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        pointer-events: none;
+    .witnesses-inner {
+        max-width: 1320px;
+        margin: 0 auto;
     }
 
-    .aww-card .item-icon {
-        width: 64px;
-        height: 64px;
-        background: linear-gradient(180deg, rgba(212, 175, 92, 0.1) 0%, rgba(212, 175, 92, 0.02) 100%);
-        box-shadow: inset 0 1px 0 0 rgba(212, 175, 92, 0.4), 0 8px 32px rgba(212, 175, 92, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-    }
-    .aww-card .item-icon svg { width: 28px; height: 28px; color: var(--gold); }
-    
-    .aww-card .item-title { font-size: 20px; font-weight: 700; }
-    .aww-card .item-sub { font-size: 14px; opacity: 0.6; }
-
-    /* CTA Wrapper */
-    .aww-cta-wrapper {
-        margin-top: clamp(80px, 12vh, 140px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .witnesses-header {
+        max-width: 760px;
+        margin-bottom: clamp(56px, 8vh, 96px);
     }
 
-    .aww-magnetic-btn {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px 64px;
-        border-radius: 100px;
-        background: rgba(255, 255, 255, 0.03);
+    .witnesses-header .section-label { margin-bottom: 36px; }
+
+    .witnesses-headline {
+        font-size: clamp(34px, 4.8vw, 64px);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
         color: #fff;
-        font-family: var(--sans);
-        font-weight: 600;
-        font-size: 17px;
-        letter-spacing: 0.02em;
-        text-decoration: none;
-        overflow: hidden;
-        transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
-        cursor: pointer;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        margin-bottom: 28px;
     }
 
-    .aww-magnetic-btn .btn-text {
+    .witnesses-lead {
+        font-size: clamp(16px, 1.2vw, 19px);
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 560px;
+    }
+
+    /* Asymmetric editorial grid */
+    .witnesses-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(260px, auto);
+        gap: clamp(14px, 1.6vw, 24px);
+    }
+
+    .witness-item {
         position: relative;
-        z-index: 2;
-        pointer-events: none;
+        overflow: hidden;
+        border-radius: 4px;
+        isolation: isolate;
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+            0 18px 40px rgba(0, 0, 0, 0.4);
+        transition:
+            transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1),
+            box-shadow 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
     }
 
-    .aww-magnetic-btn .btn-border-glow {
+    .witness-frame {
         position: absolute;
         inset: 0;
-        border-radius: inherit;
-        padding: 2px;
-        background: conic-gradient(from 0deg, transparent 0%, var(--gold) 20%, transparent 40%);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        animation: aww-spin 4s linear infinite;
-        opacity: 0.6;
-        transition: opacity 0.4s ease;
-    }
-    
-    .aww-magnetic-btn:hover .btn-border-glow {
-        opacity: 1;
-        background: conic-gradient(from 0deg, transparent 0%, #fff 20%, var(--gold) 50%, transparent 70%);
+        overflow: hidden;
     }
 
-    @keyframes aww-spin {
-        100% { transform: rotate(360deg); }
+    .witness-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+            transform 1.2s cubic-bezier(0.2, 0.6, 0.2, 1),
+            filter 0.8s ease;
+        filter: brightness(0.82) saturate(0.92);
+    }
+
+    /* Bottom gradient that fades in to make the caption readable */
+    .witness-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.65) 100%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+    }
+
+    .witness-caption {
+        position: absolute;
+        left: clamp(16px, 1.4vw, 24px);
+        bottom: clamp(14px, 1.4vw, 22px);
+        z-index: 2;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+            opacity 0.5s ease 0.05s,
+            transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1) 0.05s;
+    }
+
+    .witness-num {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(20px, 1.8vw, 26px);
+        color: var(--gold);
+        letter-spacing: -0.01em;
+    }
+
+    .witness-label {
+        font-size: 11.5px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.92);
+    }
+
+    .witness-item:hover {
+        box-shadow:
+            inset 0 0 0 1px rgba(212, 175, 92, 0.30),
+            0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .witness-item:hover .witness-frame img {
+        transform: scale(1.04);
+        filter: brightness(0.96) saturate(1.05);
+    }
+
+    .witness-item:hover::after { opacity: 1; }
+
+    .witness-item:hover .witness-caption {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Asymmetric placement (desktop) */
+    .w-1 { grid-column: 1 / 8;  grid-row: 1; }              /* feature wide landscape */
+    .w-2 { grid-column: 8 / 13; grid-row: 1 / 3; }          /* tall portrait, 2 rows */
+    .w-3 { grid-column: 1 / 5;  grid-row: 2; }
+    .w-4 { grid-column: 5 / 8;  grid-row: 2; }
+    .w-5 { grid-column: 1 / 5;  grid-row: 3; }
+    .w-6 { grid-column: 5 / 9;  grid-row: 3; }
+    .w-7 { grid-column: 9 / 13; grid-row: 3; }
+
+    /* Stagger the reveal so the grid "builds" as you scroll in */
+    .witness-item.reveal[data-delay="1"] { transition-delay: 0.08s; }
+    .witness-item.reveal[data-delay="2"] { transition-delay: 0.16s; }
+    .witness-item.reveal[data-delay="3"] { transition-delay: 0.24s; }
+    .witness-item.reveal[data-delay="4"] { transition-delay: 0.32s; }
+    .witness-item.reveal[data-delay="5"] { transition-delay: 0.40s; }
+    .witness-item.reveal[data-delay="6"] { transition-delay: 0.48s; }
+
+    /* Show caption permanently on touch devices (no hover) */
+    @media (hover: none) {
+        .witness-item::after { opacity: 1; }
+        .witness-caption     { opacity: 1; transform: none; }
     }
 
     @media (max-width: 900px) {
-        .aww-cards-wrapper { grid-template-columns: 1fr; }
+        .witnesses-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: minmax(220px, auto);
+        }
+        .w-1, .w-2, .w-3, .w-4, .w-5, .w-6, .w-7 {
+            grid-column: auto;
+            grid-row: auto;
+        }
+        .w-1 { grid-column: 1 / 3; }   /* full-width feature */
+        .w-2 { grid-row: span 2; }     /* preserve the tall shape */
+    }
+
+    @media (max-width: 540px) {
+        .witnesses-grid {
+            grid-template-columns: 1fr;
+        }
+        .w-2 { grid-row: auto; }       /* drop the tall span on phones */
     }
 
     /* ============================================================
@@ -1496,32 +1524,22 @@
 
                 <!-- Slide 2 -->
                 <article class="slide" data-idx="1">
-                    <div class="book-cover book-cover-1">
-                        <div class="cover-inner">
-                            <span class="cover-author">Andreia Vieira</span>
-                            <div class="cover-title">
-                                <span class="word">A Fé que</span>
-                                <span class="word word-italic">Carrega</span>
-                            </div>
-                            <div class="cover-foot">
-                                <span class="line"></span>
-                                <span class="label">Volume II</span>
-                            </div>
-                        </div>
+                    <div class="book-cover book-cover-img">
+                        <img src="assets/livro-2.PNG" alt="Nácar — O Valor de uma Ferida">
                     </div>
 
                     <div class="book-info">
                         <span class="book-meta">
-                            Devocional
+                            Reflexões
                             <span class="dot"></span>
-                            2025
+                            Volume II
                         </span>
                         <h3 class="book-title-h">
-                            A Fé que <span class="accent">Carrega</span>
+                            <span class="accent">Nácar</span>
                         </h3>
                         <p class="book-desc">
-                            Reflexões diárias para mulheres que aprenderam que a fé não
-                            elimina o vale &mdash; ela atravessa com você.
+                            O valor de uma ferida &mdash; sobre como a dor, quando atravessada
+                            com propósito, transforma-se em algo precioso por dentro.
                         </p>
                         <a href="#" class="book-link">
                             Conhecer o livro
@@ -1532,32 +1550,22 @@
 
                 <!-- Slide 3 -->
                 <article class="slide" data-idx="2">
-                    <div class="book-cover book-cover-2">
-                        <div class="cover-inner">
-                            <span class="cover-author">Andreia Vieira</span>
-                            <div class="cover-title">
-                                <span class="word">Quando Tudo</span>
-                                <span class="word word-italic">Cede</span>
-                            </div>
-                            <div class="cover-foot">
-                                <span class="line"></span>
-                                <span class="label">Volume III</span>
-                            </div>
-                        </div>
+                    <div class="book-cover book-cover-img">
+                        <img src="assets/livro-3.PNG" alt="Acima do Medo">
                     </div>
 
                     <div class="book-info">
                         <span class="book-meta">
                             Memórias
                             <span class="dot"></span>
-                            2026
+                            Volume III
                         </span>
                         <h3 class="book-title-h">
-                            Quando Tudo <span class="accent">Cede</span>
+                            Acima do <span class="accent">Medo</span>
                         </h3>
                         <p class="book-desc">
-                            O testemunho de uma mulher que perdeu quase tudo &mdash; e
-                            descobriu o que não se pode perder. Uma história de propósito.
+                            A travessia entre a tempestade e a margem &mdash; um testemunho
+                            de fé para quem aprendeu a navegar quando o mar não pede licença.
                         </p>
                         <a href="#" class="book-link">
                             Conhecer o livro
@@ -1588,14 +1596,14 @@
 </section>
 
 <!-- ============================================================
-     03 — Mulheres Curadas (course intro + gallery)
+     03 — O Curso (intro + gallery)
      ============================================================ -->
 <section class="course" id="curso">
     <div class="course-header">
         <span class="section-label reveal">
             <span class="num">03</span>
             <span class="line"></span>
-            <span>Mulheres Curadas</span>
+            <span>O Curso</span>
         </span>
 
         <h2 class="course-headline reveal" data-delay="1">
@@ -1702,71 +1710,102 @@
 </section>
 
 <!-- ============================================================
-     05 — Inscrição (what's included + CTA)
+     05 — Mulheres Curadas (testimonials gallery)
      ============================================================ -->
-<section class="course aww-enrollment" id="inscricao">
-    <!-- Ambient glowing lights behind everything -->
-    <div class="aww-ambient-lights">
-        <div class="light-1"></div>
-        <div class="light-2"></div>
-    </div>
+<section class="witnesses" id="mulheres-curadas">
+    <div class="witnesses-inner">
 
-    <div class="course-header aww-header">
-        <span class="section-label reveal">
-            <span class="num">05</span>
-            <span class="line"></span>
-            <span>Inscrição</span>
-        </span>
+        <div class="witnesses-header">
+            <span class="section-label reveal">
+                <span class="num">05</span>
+                <span class="line"></span>
+                <span>Mulheres Curadas</span>
+            </span>
 
-        <h2 class="course-headline reveal aww-title" data-delay="1">
-            Tudo pronto pra você <span class="accent">começar</span>.
-        </h2>
-    </div>
+            <h2 class="witnesses-headline reveal" data-delay="1">
+                Histórias que<br>
+                <span class="accent">cruzaram</span> comigo.
+            </h2>
 
-    <div class="aww-cards-wrapper reveal" data-delay="2">
-        <div class="aww-card" data-tilt>
-            <div class="aww-card-border"></div>
-            <div class="aww-card-content">
-                <span class="item-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-                </span>
-                <div class="item-text">
-                    <span class="item-title">12 aulas gravadas</span>
-                    <span class="item-sub">Acesso no seu ritmo</span>
-                </div>
-            </div>
+            <p class="witnesses-lead reveal" data-delay="2">
+                Cada formanda carrega uma travessia. São mulheres que escolheram
+                não atravessar a dor sozinhas &mdash; e hoje carregam fé, propósito
+                e uma nova identidade.
+            </p>
         </div>
-        <div class="aww-card" data-tilt>
-            <div class="aww-card-border"></div>
-            <div class="aww-card-content">
-                <span class="item-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </span>
-                <div class="item-text">
-                    <span class="item-title">Manual da Aluna</span>
-                    <span class="item-sub">PDF com perguntas guiadas</span>
-                </div>
-            </div>
-        </div>
-        <div class="aww-card" data-tilt>
-            <div class="aww-card-border"></div>
-            <div class="aww-card-content">
-                <span class="item-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                </span>
-                <div class="item-text">
-                    <span class="item-title">Certificado</span>
-                    <span class="item-sub">Ao concluir o curso</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="aww-cta-wrapper reveal" data-delay="3">
-        <a href="https://kiwify.app/3fMlAHY" class="btn btn-primary" target="_blank" rel="noopener">
-            Quero ser curada
-            <span class="arrow" aria-hidden="true">→</span>
-        </a>
+        <div class="witnesses-grid">
+            <figure class="witness-item w-1 reveal">
+                <div class="witness-frame">
+                    <img src="assets/Depoimentos.JPG" alt="Formandas Mulheres Curadas — a turma" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">01</span>
+                    <span class="witness-label">A turma</span>
+                </figcaption>
+            </figure>
+
+            <figure class="witness-item w-2 reveal" data-delay="1">
+                <div class="witness-frame">
+                    <img src="assets/Depoimento02.JPG" alt="Formanda Mulheres Curadas" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">02</span>
+                    <span class="witness-label">Encontro</span>
+                </figcaption>
+            </figure>
+
+            <figure class="witness-item w-3 reveal" data-delay="2">
+                <div class="witness-frame">
+                    <img src="assets/Depoimento03.JPG" alt="Formandas Mulheres Curadas — celebração" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">03</span>
+                    <span class="witness-label">Celebração</span>
+                </figcaption>
+            </figure>
+
+            <figure class="witness-item w-4 reveal" data-delay="3">
+                <div class="witness-frame">
+                    <img src="assets/Depoimento04.JPG" alt="Formandas Mulheres Curadas — cerimônia" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">04</span>
+                    <span class="witness-label">Cerimônia</span>
+                </figcaption>
+            </figure>
+
+            <figure class="witness-item w-5 reveal" data-delay="4">
+                <div class="witness-frame">
+                    <img src="assets/Depoimento06.JPG" alt="Formanda Mulheres Curadas — conquista" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">05</span>
+                    <span class="witness-label">Conquista</span>
+                </figcaption>
+            </figure>
+
+            <figure class="witness-item w-6 reveal" data-delay="5">
+                <div class="witness-frame">
+                    <img src="assets/Depoimento07.JPG" alt="Formandas Mulheres Curadas — comunhão" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">06</span>
+                    <span class="witness-label">Comunhão</span>
+                </figcaption>
+            </figure>
+
+            <figure class="witness-item w-7 reveal" data-delay="6">
+                <div class="witness-frame">
+                    <img src="assets/Depoimento08.JPG" alt="Formandas Mulheres Curadas — travessia" loading="lazy">
+                </div>
+                <figcaption class="witness-caption">
+                    <span class="witness-num">07</span>
+                    <span class="witness-label">Travessia</span>
+                </figcaption>
+            </figure>
+        </div>
+
     </div>
 </section>
 
@@ -1855,31 +1894,6 @@
             const diff = e.changedTouches[0].clientX - touchStartX;
             if (Math.abs(diff) > 50) goTo(current + (diff < 0 ? 1 : -1));
         }, { passive: true });
-        // ============================================================
-        // Awwwards Interactions
-        // ============================================================
-        
-        // 3D Tilt for cards
-        const cards = document.querySelectorAll('.aww-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -10;
-                const rotateY = ((x - centerX) / centerX) * 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-            });
-        });
     })();
 </script>
 
