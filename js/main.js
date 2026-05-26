@@ -262,22 +262,6 @@
             });
         });
 
-        // Magnetic Button
-        const magBtn = document.querySelector('.aww-magnetic-btn');
-        if(magBtn) {
-            magBtn.addEventListener('mousemove', (e) => {
-                const rect = magBtn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                magBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            });
-            
-            magBtn.addEventListener('mouseleave', () => {
-                magBtn.style.transform = 'translate(0px, 0px)';
-            });
-        }
-
         // ============================================================
         // FAQ Accordion Interaction
         // ============================================================
