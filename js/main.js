@@ -15,73 +15,49 @@
     }
 
     // ============================================================
-    // Books carousel
+    // Books carousel (Swiper Coverflow)
     // ============================================================
     (function () {
-        const carousel = document.getElementById('carousel');
-        if (!carousel) return;
+        const swiperEl = document.querySelector('.mySwiper');
+        if (!swiperEl || typeof Swiper === 'undefined') return;
 
-        const slides = carousel.querySelectorAll('.slide');
-        const dots   = carousel.querySelectorAll('.dot');
-        const bgLayer= document.querySelector('.books-bg-layer');
-        const cur    = document.getElementById('bookCur');
-        const prev   = carousel.querySelector('[data-action="prev"]');
-        const next   = carousel.querySelector('[data-action="next"]');
-        
-        // Dynamically create backgrounds based on the covers
-        const bgs = [];
-        slides.forEach((slide, i) => {
-            const bg = document.createElement('div');
-            bg.className = `book-bg ${i === 0 ? 'is-active' : ''}`;
-            
-            // Clone the cover so the background matches exactly any image/content used
-            const coverClone = slide.querySelector('.book-cover').cloneNode(true);
-            bg.appendChild(coverClone);
-            
-            bgLayer.appendChild(bg);
-            bgs.push(bg);
+        const bookInfos = document.querySelectorAll('.books-text-container .book-info');
+
+        const swiper = new Swiper('.mySwiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            initialSlide: 0,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 150,
+                modifier: 1.5,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            keyboard: {
+                enabled: true,
+            },
+            on: {
+                slideChange: function () {
+                    const activeIndex = this.activeIndex;
+                    
+                    // Crossfade text
+                    bookInfos.forEach((info, index) => {
+                        if (index === activeIndex) {
+                            info.classList.add('is-active');
+                        } else {
+                            info.classList.remove('is-active');
+                        }
+                    });
+                }
+            }
         });
-        const total  = slides.length;
-        let current  = 0;
-        let locked   = false;
-
-        function goTo(idx) {
-            if (locked) return;
-            idx = (idx + total) % total;
-            if (idx === current) return;
-            locked = true;
-
-            slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
-            dots.forEach((d, i)   => d.classList.toggle('is-active', i === idx));
-            bgs.forEach((b, i)    => b.classList.toggle('is-active', i === idx));
-            if (cur) cur.textContent = String(idx + 1).padStart(2, '0');
-
-            current = idx;
-            setTimeout(() => { locked = false; }, 750);
-        }
-
-        prev.addEventListener('click', () => goTo(current - 1));
-        next.addEventListener('click', () => goTo(current + 1));
-        dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-
-        // Keyboard arrows when carousel is in viewport / focused
-        document.addEventListener('keydown', (e) => {
-            const rect = carousel.getBoundingClientRect();
-            const inView = rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2;
-            if (!inView) return;
-            if (e.key === 'ArrowLeft')  goTo(current - 1);
-            if (e.key === 'ArrowRight') goTo(current + 1);
-        });
-
-        // Touch swipe
-        let touchStartX = 0;
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
-        carousel.addEventListener('touchend', (e) => {
-            const diff = e.changedTouches[0].clientX - touchStartX;
-            if (Math.abs(diff) > 50) goTo(current + (diff < 0 ? 1 : -1));
-        }, { passive: true });
     })();
 
     // ============================================================
