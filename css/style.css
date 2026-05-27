@@ -1659,10 +1659,11 @@
         .hero-media { justify-self: center; max-width: 420px; }
 
         .about-inner {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column-reverse;
             gap: 56px;
         }
-        .about-media { margin: 0 auto; order: 2; }
+        .about-media { margin: 0 auto; }
 
         .slide {
             grid-template-columns: 1fr;
