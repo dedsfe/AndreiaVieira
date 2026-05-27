@@ -44,6 +44,23 @@
                 enabled: true,
             },
             on: {
+                init: function () {
+                    const bgLayer = document.querySelector('.books-bg-layer');
+                    if (bgLayer) {
+                        bgLayer.innerHTML = '';
+                        const slides = document.querySelectorAll('.mySwiper .swiper-slide:not(.swiper-slide-duplicate)');
+                        slides.forEach((slide, idx) => {
+                            const img = slide.querySelector('img');
+                            if (img) {
+                                const bg = document.createElement('div');
+                                bg.className = `book-bg ${idx === this.activeIndex ? 'is-active' : ''}`;
+                                bg.dataset.idx = idx;
+                                bg.innerHTML = `<div class="book-cover book-cover-img"><img src="${img.src}" alt=""></div>`;
+                                bgLayer.appendChild(bg);
+                            }
+                        });
+                    }
+                },
                 slideChange: function () {
                     const activeIndex = this.activeIndex;
                     
@@ -55,6 +72,19 @@
                             info.classList.remove('is-active');
                         }
                     });
+
+                    // Update Background
+                    document.querySelectorAll('.books-bg-layer .book-bg').forEach((bg, index) => {
+                        if (index === activeIndex) {
+                            bg.classList.add('is-active');
+                        } else {
+                            bg.classList.remove('is-active');
+                        }
+                    });
+
+                    // Update counter
+                    const curSpan = document.querySelector('.books-counter .cur');
+                    if (curSpan) curSpan.textContent = String(activeIndex + 1).padStart(2, '0');
                 }
             }
         });
