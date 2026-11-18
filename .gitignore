@@ -4,3 +4,4 @@ node_modules/
 *.log
 .wrangler
 _index-antigo.html
+_bak_src_v1.html
