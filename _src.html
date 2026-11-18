@@ -11,11 +11,11 @@
 <meta name="theme-color" content="#fbfaf8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <style>
 /*
   Sistema
-  Fontes: Geist (400, 500) + Cormorant Garamond itálico (500), só em palavra de destaque
+  Fontes: Geist (400, 500) + Newsreader itálico (400), só em palavra de destaque
   Tamanhos: --t-xl (títulos), --t-md (texto), --t-sm (rótulos, botões, legendas)
   Espaço: múltiplos de 8
 */
@@ -40,7 +40,7 @@ p{text-wrap:pretty}
 .sm{font-size:var(--t-sm);line-height:1.5}
 .med{font-weight:500}
 .mut{color:var(--muted)}
-em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;letter-spacing:-.01em;color:var(--gold)}
+em{font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--gold)}
 .dark em{color:var(--gold-2)}
 .dark .mut{color:rgba(255,255,255,.6)}
 .label{font-size:var(--t-sm);color:var(--muted)}
@@ -160,10 +160,19 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.9);back
 .faq details p{padding:0 0 var(--s3);max-width:60ch}
 
 /* final */
-.final{text-align:center}
-.final .xl{max-width:18ch;margin:0 auto var(--s3)}
-.final .lead{margin:0 auto var(--s4)}
-.final .ctas{justify-content:center}
+.fsplit{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center}
+.fsplit .pic{aspect-ratio:4/5}
+.fsplit .pic img{object-position:40% 50%}
+.final .xl{max-width:16ch;margin-bottom:var(--s3)}
+.final .lead{margin-bottom:var(--s4)}
+/* fotos de apoio */
+.split2{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--s5);align-items:start}
+.split2 .pic{aspect-ratio:4/5;position:sticky;top:96px}
+.split2 .pic img{object-position:60% 50%}
+.rows2 li{grid-template-columns:40px 1fr;row-gap:2px}
+.rows2 li>:last-child{grid-column:2}
+.band{aspect-ratio:21/8;margin-bottom:var(--s5)}
+.band img{object-position:50% 22%}
 
 /* rodapé */
 footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env(safe-area-inset-bottom));font-size:var(--t-sm)}
@@ -185,7 +194,10 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
 @media (max-width:900px){
   .top nav{display:none}
   .row>.side,.row>.main,.hero .pic,.hero .txt{grid-column:1/-1}
-  .about .split,.bsplit{grid-template-columns:1fr;gap:var(--s4)}
+  .about .split,.bsplit,.split2,.fsplit{grid-template-columns:1fr;gap:var(--s4)}
+  .split2 .pic{position:static;aspect-ratio:4/3}
+  .fsplit .pic{aspect-ratio:4/3}
+  .band{aspect-ratio:16/9;margin-bottom:var(--s4)}
   .course .split{grid-template-columns:1fr}
   .course .vid{max-width:320px}
   .rows li{grid-template-columns:40px 1fr}
@@ -271,12 +283,15 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
     <p class="side label rv"><b>02</b> Pra você</p>
     <div class="main">
       <h2 class="xl rv">Talvez você se reconheça <em>aqui</em></h2>
-      <ol class="rows">
+      <div class="split2">
+      <div class="pic rv"><img src="img/st-escrevendo.jpg" alt="Mulher escrevendo num caderno" loading="lazy"></div>
+      <ol class="rows rows2">
         <li class="rv"><span class="n">01</span><span class="med">A cabeça não desliga</span><span class="mut">Você deita, a cabeça não para e acorda já cansada, pensando em tudo que pode dar errado amanhã.</span></li>
         <li class="rv"><span class="n">02</span><span class="med">Feridas que voltam</span><span class="mut">Coisas que aconteceram lá atrás ainda aparecem no seu jeito de reagir, de brigar ou de se calar.</span></li>
         <li class="rv"><span class="n">03</span><span class="med">Repetindo com os filhos</span><span class="mut">Às vezes você se pega repetindo com os seus filhos aquilo que jurou que nunca ia repetir.</span></li>
         <li class="rv"><span class="n">04</span><span class="med">Perdida de si mesma</span><span class="mut">Cuida de todo mundo, só que quando para um minuto não sabe mais do que gosta nem com o que sonha.</span></li>
       </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -312,6 +327,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
     <p class="side label rv"><b>04</b> A jornada</p>
     <div class="main">
       <h2 class="xl rv">A cura tem um <em>caminho</em></h2>
+      <div class="pic band rv"><img src="img/st-caminho.jpg" alt="Mulher caminhando num campo ao pôr do sol" loading="lazy"></div>
       <div class="steps">
         <div class="rv"><p class="n sm">Passo 1</p><p class="med">Olhar pras feridas</p><p class="mut">Reconhecer os padrões que te travam, porque não dá pra cuidar daquilo que a gente nem sabe que está ali.</p></div>
         <div class="rv" style="--d:.08s"><p class="n sm">Passo 2</p><p class="med">Acalmar a ansiedade</p><p class="mut">Com princípios bíblicos e inteligência emocional, aprender a lidar com o que sente e encontrar paz no hoje.</p></div>
@@ -389,13 +405,16 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
 </section>
 
 <section class="sec final" id="contato">
-  <div class="wrap">
+  <div class="wrap fsplit">
+    <div class="pic rv"><img src="img/st-segurando-biblia.jpg" alt="Mulher segurando a Bíblia junto ao peito" loading="lazy"></div>
+    <div>
     <p class="label rv"><b>09</b> Vamos conversar</p>
     <h2 class="xl rv" style="margin-top:var(--s3)">Se o seu coração apertou lendo até aqui, me manda uma <em>mensagem</em></h2>
     <p class="lead mut rv">Escreve CURADAS no meu direct que eu te conto tudo sobre a próxima turma ao vivo, ou você já começa hoje pelas aulas gravadas.</p>
     <div class="ctas rv">
       <a class="btn" href="{{DM}}" target="_blank" rel="noopener">Mandar CURADAS no direct <span class="ar">→</span></a>
       <a class="btn ghost" href="{{CURSO}}" target="_blank" rel="noopener">Começar pelas aulas gravadas</a>
+    </div>
     </div>
   </div>
 </section>
