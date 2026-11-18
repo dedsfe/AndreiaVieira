@@ -24,7 +24,7 @@
   --line:rgba(20,18,16,.12); --line-d:rgba(255,255,255,.14);
   --t-xl:clamp(36px,5.2vw,68px); --t-md:17px; --t-sm:14px;
   --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:104px;
-  --sec:clamp(104px,13vw,176px); --pad:clamp(20px,4vw,48px); --max:1280px;
+  --sec:clamp(80px,10vw,136px); --r:20px; --pad:clamp(20px,4vw,48px); --max:1280px;
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -64,12 +64,14 @@ em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;lett
 .sec{padding:var(--sec) 0;border-top:1px solid var(--line)}
 .sec.dark{background:var(--brown);color:#fff;border-top:0}
 .row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--s3)}
-.row>.side{grid-column:1/4}
-.row>.main{grid-column:5/13}
-.main>.xl{margin-bottom:var(--s4)}
+.row>.side{grid-column:1/-1;margin-bottom:var(--s3)}
+.row>.main{grid-column:1/-1}
+.main>.xl{margin-bottom:var(--s3);max-width:20ch}
+.main>.xl+.lead{margin-bottom:var(--s5)}
+.main>.xl+.rows,.main>.xl+.steps,.main>.xl+.books{margin-top:var(--s5)}
 .lead{max-width:60ch}
 .lead+.lead{margin-top:var(--s2)}
-.pic{overflow:hidden;border-radius:4px;background:var(--bg-2)}
+.pic{overflow:hidden;border-radius:var(--r);background:var(--bg-2)}
 .pic img{width:100%;height:100%;object-fit:cover}
 
 /* lista com linhas */
@@ -89,26 +91,28 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.9);back
 .top .btn{height:40px;padding:0 var(--s2)}
 
 /* hero */
-.hero{padding:var(--s6) 0 var(--sec)}
-.hero h1{max-width:14ch}
-.hero .row{margin-top:var(--s5);align-items:end}
-.hero .pic{grid-column:1/6;aspect-ratio:4/5}
-.hero .pic img{object-position:50% 30%}
-.hero .txt{grid-column:7/13}
+.hero{padding:var(--s5) 0 var(--sec)}
+.hero .row{align-items:center;row-gap:var(--s5)}
+.hero .txt{grid-column:1/7}
+.hero h1{margin:var(--s3) 0}
 .hero .txt .lead{margin-bottom:var(--s4)}
+.hero .pic{grid-column:8/13;aspect-ratio:4/5}
+.hero .pic img{object-position:50% 30%}
 .facts{list-style:none;display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4);margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line)}
 
 /* sobre */
-.about .pic{aspect-ratio:16/9;margin-top:var(--s5)}
+.about .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center}
+.about .pic{aspect-ratio:4/3.2}
+.about .xl{margin-bottom:var(--s3)}
 .sign{margin-top:var(--s4)}
 .sign em{font-size:var(--t-xl);line-height:1}
 
 /* curso */
-.course .split{display:grid;grid-template-columns:1fr 280px;gap:var(--s5);align-items:start}
-.course .rows{margin:var(--s4) 0}
+.course .split{display:grid;grid-template-columns:1fr 300px;gap:var(--s5);align-items:start}
+.course .rows{margin:var(--s4) 0;max-width:560px}
 .course .rows li{grid-template-columns:40px 1fr;row-gap:2px}
 .course .rows li>:last-child{grid-column:2}
-.vid{aspect-ratio:476/630;border-radius:4px;overflow:hidden;background:#000}
+.vid{aspect-ratio:476/630;border-radius:var(--r);overflow:hidden;background:#000}
 .vid video{width:100%;height:100%;object-fit:cover}
 .vid+.sm{margin-top:var(--s2)}
 .course .note{margin-top:var(--s3)}
@@ -117,32 +121,36 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.9);back
 /* jornada */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
 .steps>div{border-top:1px solid var(--ink);padding-top:var(--s3)}
-.steps .n{color:var(--gold);margin-bottom:var(--s4)}
+.steps .n{color:var(--gold);margin-bottom:var(--s3)}
 .steps .med{margin-bottom:var(--s1)}
 
 /* livros */
+.bsplit{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--s5);align-items:start}
+.bsplit .xl{margin-bottom:var(--s3)}
+.bsplit .lead{margin-bottom:0}
 .books{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
 .book .pic{aspect-ratio:2/3;margin-bottom:var(--s2);transition:transform .8s var(--ease)}
 .book:hover .pic{transform:translateY(-6px)}
 .book .med{margin-bottom:4px}
 .book .go{margin-top:var(--s2);display:inline-flex;gap:var(--s1);color:var(--gold)}
-.also{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4)}
+.also{margin-top:var(--s4);display:flex;flex-direction:column;align-items:flex-start;gap:var(--s1)}
 .also a{border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .3s}
 .also a:hover{border-color:var(--ink)}
 
 /* formandas */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s1);margin-top:var(--s5)}
+.gallery{margin-top:0!important;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-top:var(--s5)}
 .gallery .pic{aspect-ratio:4/5}
 .gallery .pic.w{grid-column:span 2;aspect-ratio:auto}
 
 /* instagram */
-.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s1);margin-top:var(--s5)}
-.reel{display:block;aspect-ratio:2/3;border-radius:4px;overflow:hidden;background:#000}
+.reels{margin-top:0!important;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);margin-top:var(--s5)}
+.reel{display:block;aspect-ratio:2/3;border-radius:16px;overflow:hidden;background:#000}
 .reel img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .reel:hover img{transform:scale(1.03)}
 .follow{margin-top:var(--s4)}
 
 /* dúvidas */
+.faq .main{max-width:820px}
 .faq details{border-bottom:1px solid var(--line)}
 .faq details:first-child{border-top:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:var(--s3);padding:var(--s3) 0;font-weight:500}
@@ -177,8 +185,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
 @media (max-width:900px){
   .top nav{display:none}
   .row>.side,.row>.main,.hero .pic,.hero .txt{grid-column:1/-1}
-  .row>.side{margin-bottom:var(--s3)}
-  .hero .txt{margin-top:var(--s4)}
+  .about .split,.bsplit{grid-template-columns:1fr;gap:var(--s4)}
   .course .split{grid-template-columns:1fr}
   .course .vid{max-width:320px}
   .rows li{grid-template-columns:40px 1fr}
@@ -194,7 +201,11 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
   .foot>div:nth-child(3){grid-column:7/13}
 }
 @media (max-width:560px){
-  .hero{padding-top:var(--s5)}
+  .hero{padding-top:var(--s4)}
+  .main>.xl+.lead{margin-bottom:var(--s4)}
+  .main>.xl+.rows,.main>.xl+.steps,.main>.xl+.books{margin-top:var(--s4)}
+  .gallery,.reels{gap:var(--s1)}
+  .reel{border-radius:12px}
   .hero .pic{aspect-ratio:4/4.4}
   .books{grid-template-columns:repeat(3,1fr);gap:12px}
   .book p.sm{display:none}
@@ -221,38 +232,38 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <p class="label rv"><b>Andréa Vieira</b>, saúde emocional para mulheres</p>
-    <h1 class="xl rv" style="--d:.06s;margin-top:var(--s3)">Você não precisa atravessar a dor <em>sozinha</em></h1>
-    <div class="row">
-      <div class="pic rv" style="--d:.12s"><img src="img/sobre.jpg" alt="Andréa Vieira da Cunha" fetchpriority="high"></div>
-      <div class="txt rv" style="--d:.18s">
-        <p class="lead mut">Eu caminho com mulheres que querem curar as feridas de dentro, vencer a ansiedade e se reencontrar em Deus, juntando o que a neurociência comportamental ensina com os princípios da Palavra.</p>
-        <div class="ctas">
-          <a class="btn" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Conhecer o Mulheres Curadas <span class="ar">→</span></a>
-          <a class="btn ghost" href="#sobre">Quem sou eu</a>
-        </div>
-        <ul class="facts sm mut">
-          <li>Terapeuta comportamental</li>
-          <li>Palestrante</li>
-          <li>3 livros publicados</li>
-        </ul>
+  <div class="wrap row">
+    <div class="txt">
+      <p class="label rv"><b>Andréa Vieira</b>, saúde emocional para mulheres</p>
+      <h1 class="xl rv" style="--d:.06s">Você não precisa atravessar a dor <em>sozinha</em></h1>
+      <p class="lead mut rv" style="--d:.12s">Eu caminho com mulheres que querem curar as feridas de dentro, vencer a ansiedade e se reencontrar em Deus, juntando o que a neurociência comportamental ensina com os princípios da Palavra.</p>
+      <div class="ctas rv" style="--d:.18s">
+        <a class="btn" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Conhecer o Mulheres Curadas <span class="ar">→</span></a>
+        <a class="btn ghost" href="#sobre">Quem sou eu</a>
       </div>
+      <ul class="facts sm mut rv" style="--d:.24s">
+        <li>Terapeuta comportamental</li>
+        <li>Palestrante</li>
+        <li>3 livros publicados</li>
+      </ul>
     </div>
+    <div class="pic rv" style="--d:.12s"><img src="img/sobre.jpg" alt="Andréa Vieira da Cunha" fetchpriority="high"></div>
   </div>
 </section>
 
 <section class="sec about" id="sobre">
   <div class="wrap row">
     <p class="side label rv"><b>01</b> Sobre mim</p>
-    <div class="main">
-      <h2 class="xl rv">Por trás desse trabalho existe uma <em>história</em></h2>
-      <p class="lead mut rv">Sou palestrante em saúde emocional feminina, terapeuta comportamental com formação em inteligência emocional, escritora, mãe e casada há 26 anos.</p>
-      <p class="lead mut rv">Já passei por vales muito fundos, daqueles em que a gente acha que não vai conseguir levantar, e foi ali que eu entendi o que Deus queria fazer com a minha história. Hoje eu uso tudo que aprendi pra ajudar outras mulheres a entender o que sentem, reconhecer o valor que têm e descobrir que ainda tem muita vida pela frente.</p>
-      <p class="sign rv"><span class="sm mut">Com carinho,</span><br><em>Andréa</em></p>
+    <div class="main split">
+      <div>
+        <h2 class="xl rv">Por trás desse trabalho existe uma <em>história</em></h2>
+        <p class="lead mut rv">Sou palestrante em saúde emocional feminina, terapeuta comportamental com formação em inteligência emocional, escritora, mãe e casada há 26 anos.</p>
+        <p class="lead mut rv">Já passei por vales muito fundos, daqueles em que a gente acha que não vai conseguir levantar, e foi ali que eu entendi o que Deus queria fazer com a minha história. Hoje eu uso tudo que aprendi pra ajudar outras mulheres a entender o que sentem, reconhecer o valor que têm e descobrir que ainda tem muita vida pela frente.</p>
+        <p class="sign rv"><span class="sm mut">Com carinho,</span><br><em>Andréa</em></p>
+      </div>
+      <div class="pic rv" style="--d:.1s"><img src="img/depoimentos.jpg" alt="Turma de formandas do Mulheres Curadas" loading="lazy"></div>
     </div>
   </div>
-  <div class="wrap"><div class="pic rv"><img src="img/depoimentos.jpg" alt="Turma de formandas do Mulheres Curadas" loading="lazy"></div></div>
 </section>
 
 <section class="sec">
@@ -314,14 +325,15 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
   <div class="wrap row">
     <p class="side label rv"><b>05</b> Livros</p>
     <div class="main">
-      <h2 class="xl rv">Pra continuar a conversa em <em>casa</em></h2>
+      <div class="bsplit"><div><h2 class="xl rv">Pra continuar a conversa em <em>casa</em></h2>
+      <p class="lead mut rv">Cada livro nasceu de um pedaço da minha história e do que eu vi acontecer na vida das mulheres que caminharam comigo.</p>
+      <p class="also sm rv"><span class="mut">Também:</span><a href="https://hotmart.com/pt-br/marketplace/produtos/hagsxd-andrea-da-silva-vieira-kzukd/N106135722O" target="_blank" rel="noopener">As Guerreiras, um legado a ser seguido</a><a href="https://hotmart.com/pt-br/marketplace/produtos/audiobook-comununicacao/Y107456335S" target="_blank" rel="noopener">Audiobook O poder da comunicação</a></p></div>
       <div class="books">
         <a class="book rv" href="https://hotmart.com/pt-br/marketplace/produtos/caminho-para-a-cura-um-guia-pratico-para-superar-feridas-e-viver-em-paz/E101189234R" target="_blank" rel="noopener"><div class="pic"><img src="img/livro-1.jpg" alt="Capa do livro Caminho para a Cura" loading="lazy"></div><p class="med">Caminho para a Cura</p><p class="sm mut">Um guia prático pra superar as feridas e voltar a viver em paz.</p><span class="go sm">Comprar →</span></a>
         <a class="book rv" style="--d:.08s" href="https://go.hotmart.com/Y105969079E" target="_blank" rel="noopener"><div class="pic"><img src="img/livro-2.jpg" alt="Capa do livro Nácar" loading="lazy"></div><p class="med">Nácar</p><p class="sm mut">O valor de uma ferida, e como a dor atravessada com Deus vira algo precioso.</p><span class="go sm">Comprar →</span></a>
         <a class="book rv" style="--d:.16s" href="https://go.hotmart.com/M102919479B" target="_blank" rel="noopener"><div class="pic"><img src="img/livro-3.jpg" alt="Capa do livro Acima do Medo" loading="lazy"></div><p class="med">Acima do Medo</p><p class="sm mut">Um testemunho de fé pra quem está no meio da tempestade.</p><span class="go sm">Comprar →</span></a>
       </div>
-      <p class="also sm rv"><span class="mut">Também:</span><a href="https://hotmart.com/pt-br/marketplace/produtos/hagsxd-andrea-da-silva-vieira-kzukd/N106135722O" target="_blank" rel="noopener">As Guerreiras, um legado a ser seguido</a><a href="https://hotmart.com/pt-br/marketplace/produtos/audiobook-comununicacao/Y107456335S" target="_blank" rel="noopener">Audiobook O poder da comunicação</a></p>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -370,12 +382,15 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 calc(var(--s4) + env
 <section class="sec faq">
   <div class="wrap row">
     <p class="side label rv"><b>08</b> Dúvidas</p>
-    <div class="main rv">
+    <div class="main">
+      <h2 class="xl rv">Perguntas <em>frequentes</em></h2>
+      <div class="rv">
       <details><summary>Pra quem é o Mulheres Curadas?</summary><p class="mut">É pra mulher que quer cuidar de feridas emocionais, sair dos ciclos de ansiedade e medo e fortalecer a fé, com um direcionamento prático, acolhedor e bíblico.</p></details>
       <details><summary>Como funciona o acesso às aulas?</summary><p class="mut">O curso é 100% online. Assim que a inscrição é confirmada você recebe o acesso por e-mail e entra na área de alunas, onde as aulas e os materiais já estão organizados.</p></details>
       <details><summary>Por quanto tempo eu tenho acesso?</summary><p class="mut">Você tem acesso a todas as aulas gravadas e às atualizações do curso por um ano inteiro, contando da data da compra.</p></details>
       <details><summary>Vou ter ajuda pra tirar dúvidas?</summary><p class="mut">Vai sim. Eu e a minha equipe acompanhamos os comentários de cada aula e também o canal de acompanhamento das alunas.</p></details>
       <details><summary>Quais são as formas de pagamento?</summary><p class="mut">Cartão de crédito em até 12x, Pix com liberação na hora ou boleto, tudo pela Kiwify, que é uma plataforma segura.</p></details>
+      </div>
     </div>
   </div>
 </section>
