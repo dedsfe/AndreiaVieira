@@ -17,7 +17,7 @@ def icon(m):
     s = re.sub(r'\s(class|width|height)="[^"]*"', "", head) + ">" + rest
     s = s.replace("<svg", '<svg class="ico" aria-hidden="true"', 1)
     return re.sub(r"\s*\n\s*", " ", s)
-rh = "\n    ".join(f'<a class="reel rv" style="--d:{i*0.06:.2f}s" href="https://www.instagram.com/reel/{c}/" target="_blank" rel="noopener"><img src="img/ig-{c}.jpg" alt="{t}" loading="lazy">{{{{i:play}}}}</a>' for i,(c,t) in enumerate(reels))
+rh = "\n    ".join(f'<a class="reel up" style="--d:{i*0.06:.2f}s" href="https://www.instagram.com/reel/{c}/" target="_blank" rel="noopener"><img src="img/ig-{c}.jpg" alt="{t}" loading="lazy"></a>' for i,(c,t) in enumerate(reels))
 src = src.replace("{{REELS}}", rh)
 for k,v in L.items(): src = src.replace("{{"+k+"}}", v)
 src = re.sub(r"\{\{i:([a-z0-9-]+)\}\}", icon, src)
