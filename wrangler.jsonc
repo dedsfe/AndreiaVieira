@@ -1,0 +1,6 @@
+{
+  "name": "andrea-vieira",
+  "compatibility_date": "2026-11-18",
+  "assets": { "directory": "." },
+  "routes": [{ "pattern": "andreavieira.digitaldna.space", "custom_domain": true }]
+}

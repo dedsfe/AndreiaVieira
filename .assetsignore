@@ -1,0 +1,12 @@
+.wrangler
+.git
+.gitignore
+.DS_Store
+wrangler.jsonc
+.assetsignore
+assets
+css
+js
+_src.html
+_build.py
+_index-antigo.html
