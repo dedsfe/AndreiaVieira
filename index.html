@@ -8,193 +8,192 @@
 <meta property="og:title" content="Andréa Vieira | Mulheres Curadas">
 <meta property="og:description" content="Você não precisa atravessar a dor sozinha. Saúde emocional para mulheres, com neurociência comportamental e a Palavra de Deus.">
 <meta property="og:image" content="https://andreavieira.digitaldna.space/img/depoimentos.jpg">
-<meta name="theme-color" content="#fbf6f2">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
+/* ===== sistema ===== */
 :root{
-  --cream:#fbf6f2; --blush:#f5e6e1; --blush-2:#efd7d0; --rose:#c0566f; --rose-deep:#9c3b55;
-  --plum:#3d1f36; --plum-2:#55304b; --text:#33242e; --muted:#76646f; --line:rgba(61,31,54,.1);
-  --r:28px; --r-sm:18px; --pad:clamp(24px,5vw,64px); --max:1160px; --sec:clamp(80px,10vw,128px);
+  --black:#141110; --brown:#4a3326; --brown-dark:#2b1e17; --sand:#f6f1eb; --white:#fff;
+  --gold:#b8955a; --gold-light:#d8bd8a;
+  --text:#1d1916; --muted:#6b625b; --line:#e9e1d8; --line-dark:rgba(255,255,255,.12);
+  --radius:16px; --pad:clamp(20px,5vw,56px); --max:1160px; --sec:clamp(80px,10vw,120px);
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:Figtree,system-ui,sans-serif;color:var(--text);background:var(--cream);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:"DM Sans",system-ui,sans-serif;color:var(--text);background:var(--white);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-.narrow{max-width:760px}
-h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(40px,5.4vw,66px);letter-spacing:-.03em}
+h2{font-size:clamp(30px,3.8vw,44px)}
+h3{font-size:19px;letter-spacing:-.01em}
 p{text-wrap:pretty}
-h2{font-size:clamp(30px,4vw,46px)}
-em{font-family:Fraunces,serif;font-style:italic;font-weight:400;color:var(--rose);letter-spacing:-.01em}
-.on-dark em{color:#f1a9b9}
-.tag{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--blush);color:var(--rose-deep);font-size:14px;font-weight:600}
-.on-dark .tag{background:rgba(255,255,255,.08);color:#f1c4cf}
-.tag+h1,.tag+h2{margin-top:18px}
-.sub{font-size:clamp(17px,1.5vw,19px);color:var(--muted);max-width:600px}
-.on-dark .sub{color:rgba(255,255,255,.72)}
-.center{text-align:center}
-.center .sub{margin-left:auto;margin-right:auto}
-.sec-head{margin-bottom:52px}
-.sec-head h2{margin-bottom:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:14px;font-weight:600;font-size:16px;transition:transform .35s var(--ease),background .3s,box-shadow .35s var(--ease)}
-.btn svg{width:19px;height:19px}
-.btn-plum{background:var(--plum);color:#fff;box-shadow:0 12px 28px -14px rgba(61,31,54,.7)}
-.btn-plum:hover{background:var(--plum-2);transform:translateY(-2px)}
-.btn-rose{background:var(--rose);color:#fff;box-shadow:0 12px 28px -14px rgba(192,86,111,.8)}
-.btn-rose:hover{background:var(--rose-deep);transform:translateY(-2px)}
-.btn-soft{background:#fff;color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
-.btn-soft:hover{background:var(--blush)}
-.on-dark .btn-soft{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
-.ico{width:24px;height:24px;flex:none}
-section{position:relative}
+em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:1.12em;letter-spacing:0;color:var(--gold)}
+.dark em,.black em{color:var(--gold-light)}
+.ico{width:22px;height:22px;flex:none}
 
-/* topo */
-header.top{position:sticky;top:0;z-index:50;background:rgba(251,246,242,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+/* seção */
+.sec{padding:var(--sec) 0}
+.sec.sand{background:var(--sand)}
+.sec.dark{background:var(--brown-dark);color:#fff}
+.sec.black{background:var(--black);color:#fff}
+.head{text-align:center;max-width:680px;margin:0 auto 56px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before,.eyebrow::after{content:"";width:22px;height:1px;background:currentColor}
+.eyebrow.left::after{display:none}
+.dark .eyebrow,.black .eyebrow{color:var(--gold-light)}
+.eyebrow+h1,.eyebrow+h2{margin-top:16px}
+.head p,.lead{color:var(--muted);font-size:clamp(17px,1.5vw,18.5px);margin-top:16px}
+.dark .head p,.dark .lead,.black .head p,.black .lead{color:rgba(255,255,255,.7)}
+
+/* botão */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:10px;font-weight:600;font-size:16px;transition:background .3s,color .3s,border-color .3s,transform .35s var(--ease)}
+.btn svg{width:18px;height:18px}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--black);color:#fff}
+.btn-dark:hover{background:var(--brown)}
+.btn-gold{background:var(--gold);color:var(--black)}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-line{border:1px solid var(--line);color:var(--text);background:#fff}
+.btn-line:hover{border-color:var(--gold)}
+.dark .btn-line,.black .btn-line{background:transparent;border-color:rgba(255,255,255,.25);color:#fff}
+.dark .btn-line:hover,.black .btn-line:hover{border-color:var(--gold-light)}
+
+/* card */
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
+.card>.ico{color:var(--gold);width:26px;height:26px}
+.card h3{margin:18px 0 8px}
+.card p{color:var(--muted);font-size:16px}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.photo{border-radius:var(--radius);overflow:hidden;background:var(--sand)}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* ===== topo ===== */
+header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
 header.top.solid{border-color:var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
-.logo{font-weight:700;font-size:19px;letter-spacing:-.015em;color:var(--plum)}
-.logo em{font-weight:500;font-size:21px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+.logo{display:flex;flex-direction:column;line-height:1.1}
+.logo b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.logo small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:4px}
 .top nav{display:flex;gap:30px;font-size:15px;font-weight:500;color:var(--muted)}
-.top nav a:hover{color:var(--plum)}
-.top .btn{height:44px;padding:0 18px;font-size:15px;border-radius:12px}
+.top nav a:hover{color:var(--text)}
+.top .btn{height:44px;padding:0 18px;font-size:15px}
 
-/* hero */
-.hero{padding:clamp(48px,7vw,88px) 0 0}
-.hero h1{font-size:clamp(40px,6vw,76px);max-width:900px;margin-left:auto;margin-right:auto;letter-spacing:-.03em}
-.hero .sub{margin-top:22px}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
-.hero-pic{margin-top:clamp(44px,6vw,72px);border-radius:var(--r);overflow:hidden;aspect-ratio:16/8;box-shadow:0 40px 80px -50px rgba(61,31,54,.6)}
-.hero-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-44px;position:relative;z-index:2;padding:0 clamp(16px,4vw,48px);text-align:left}
-.fact{background:#fff;border-radius:var(--r-sm);padding:20px 22px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px -26px rgba(61,31,54,.45)}
-.fact svg{width:26px;height:26px;color:var(--rose)}
-.fact b{display:block;font-size:16px;line-height:1.3}
-.fact small{display:block;font-size:14px;color:var(--muted);line-height:1.4}
+/* ===== hero ===== */
+.hero{padding:clamp(48px,7vw,96px) 0 var(--sec)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,80px);align-items:center}
+.hero .lead{max-width:540px;margin-top:22px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.checks{list-style:none;display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:32px;font-size:15px;color:var(--muted)}
+.checks li{display:flex;align-items:center;gap:8px}
+.checks svg{width:18px;height:18px;color:var(--gold)}
+.hero-photo{position:relative;z-index:0}
+.hero-photo .photo{aspect-ratio:4/5}
+.hero-photo .photo img{object-position:50% 30%}
+.hero-photo::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);border-radius:var(--radius);z-index:-1}
+.hero-badge{position:absolute;left:-24px;bottom:32px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:0 20px 40px -24px rgba(20,17,16,.35)}
+.hero-badge b{display:block;font-size:15px}
+.hero-badge small{font-size:13px;color:var(--muted)}
 
-/* carta */
-.letter{padding:var(--sec) 0}
-.letter .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(40px,7vw,96px);align-items:center}
-.letter-pic{position:relative}
-.letter-pic .frame{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--blush)}
-.letter-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.letter-pic .stamp{position:absolute;right:-18px;bottom:28px;background:var(--rose);color:#fff;border-radius:var(--r-sm);padding:14px 18px;font-size:14px;font-weight:600;line-height:1.35;box-shadow:0 18px 36px -18px rgba(156,59,85,.8)}
-.letter-pic .stamp em{color:#fff;font-size:20px;display:block}
-.letter p{color:var(--muted);margin-bottom:18px;max-width:620px}
-.letter h2{margin-bottom:24px}
-.sign{margin-top:28px;display:flex;flex-direction:column;gap:2px}
-.sign small{font-size:15px;color:var(--muted)}
-.sign em{font-size:30px;line-height:1.1}
+/* números */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:32px 16px;text-align:center}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat b{display:block;font-size:clamp(28px,3vw,36px);font-weight:600;letter-spacing:-.02em;color:var(--brown)}
+.stat span{font-size:14.5px;color:var(--muted)}
 
-/* pra você */
-.foryou{padding:var(--sec) 0;background:var(--blush)}
-.foryou ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.foryou li{background:var(--cream);border-radius:var(--r-sm);padding:22px 24px;display:flex;gap:14px;align-items:flex-start;font-size:16.5px}
-.foryou li svg{width:22px;height:22px;color:var(--rose);margin-top:2px}
-.foryou .close{margin-top:40px;font-size:clamp(19px,2vw,22px);font-weight:500;color:var(--plum)}
+/* sobre */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.about .photo{aspect-ratio:4/3}
+.about p{color:var(--muted);margin-top:18px}
+.sign{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.sign small{display:block;font-size:14px;color:var(--muted)}
+.sign em{font-size:30px;line-height:1.2}
 
 /* curso */
-.course{padding:var(--sec) 0}
-.course-box{background:var(--plum);color:#fff;border-radius:calc(var(--r) + 8px);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,5vw,64px);align-items:center}
-.course-box h2{margin-bottom:16px}
-.rows{list-style:none;margin:32px 0;border-top:1px solid rgba(255,255,255,.12)}
-.rows li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-.rows svg{width:22px;height:22px;color:#f1a9b9;margin-top:2px}
-.rows b{display:block;font-size:16.5px}
-.rows small{display:block;font-size:15px;color:rgba(255,255,255,.62);line-height:1.5}
-.course .note{margin-top:16px;font-size:14.5px;color:rgba(255,255,255,.6)}
-.course .note a{color:#f1c4cf;text-decoration:underline;text-underline-offset:3px}
-.vid{position:relative;border-radius:var(--r-sm);overflow:hidden;aspect-ratio:476/630;background:#000}
+.course .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,72px);align-items:center}
+.list{list-style:none;margin:30px 0 4px;display:grid;gap:14px}
+.list li{display:flex;gap:14px;align-items:flex-start}
+.list svg{width:20px;height:20px;color:var(--gold-light);margin-top:3px}
+.list b{display:block;font-weight:600}
+.list small{display:block;font-size:15px;color:rgba(255,255,255,.62);line-height:1.5}
+.course .note{margin-top:16px;font-size:14.5px;color:rgba(255,255,255,.58)}
+.course .note a{color:var(--gold-light);text-decoration:underline;text-underline-offset:3px}
+.vid{border-radius:var(--radius);overflow:hidden;aspect-ratio:476/630;background:#000;border:1px solid var(--line-dark)}
 .vid video{width:100%;height:100%;object-fit:cover}
-.vid-cap{margin-top:14px;font-size:14.5px;color:rgba(255,255,255,.62);text-align:center}
+.vid-cap{margin-top:12px;text-align:center;font-size:14.5px;color:rgba(255,255,255,.6)}
 
-/* jornada */
-.path{padding:0 0 var(--sec)}
-.timeline{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
-.timeline::before{content:"";position:absolute;left:8px;right:8px;top:9px;height:2px;background:linear-gradient(90deg,var(--rose),var(--blush-2))}
-.timeline li{position:relative;padding-top:40px}
-.timeline li::before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--cream);border:2px solid var(--rose)}
-.timeline small{font-size:14px;font-weight:600;color:var(--rose-deep)}
-.timeline h3{font-size:21px;margin:6px 0 10px}
-.timeline p{color:var(--muted);font-size:16px}
+/* passos */
+.step .n{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:46px;line-height:1;color:var(--gold)}
 
 /* livros */
-.books{padding:var(--sec) 0;background:var(--plum);color:#fff}
-.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px)}
-.book{text-align:center;display:flex;flex-direction:column;align-items:center}
-.book .cover{width:100%;max-width:260px;border-radius:10px;overflow:hidden;aspect-ratio:2/3;box-shadow:0 30px 50px -24px rgba(0,0,0,.7);transition:transform .6s var(--ease)}
-.book:hover .cover{transform:translateY(-8px) rotate(-1deg)}
+.book{display:flex;flex-direction:column;padding:0;overflow:hidden;transition:border-color .3s,transform .5s var(--ease)}
+.book:hover{border-color:var(--gold);transform:translateY(-4px)}
+.book .cover{aspect-ratio:2/3;background:var(--sand)}
 .book .cover img{width:100%;height:100%;object-fit:cover}
-.book h3{font-size:21px;margin:26px 0 8px}
-.book p{color:rgba(255,255,255,.66);font-size:15.5px;max-width:300px;margin-bottom:16px}
-.book .buy{margin-top:auto;font-weight:600;color:#f1c4cf;display:inline-flex;gap:8px;align-items:center}
-.book .buy svg{width:18px;height:18px}
-.more-books{margin-top:56px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-.more-books a{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:rgba(255,255,255,.07);font-size:15px;font-weight:500;transition:background .3s}
-.more-books a:hover{background:rgba(255,255,255,.13)}
-.more-books svg{width:18px;height:18px;color:#f1a9b9}
+.book .body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.book h3{margin:0 0 8px}
+.book .more{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--brown)}
+.book .more svg{width:17px;height:17px;color:var(--gold)}
+.extra{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.extra a{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:10px 18px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:15px;font-weight:500;transition:border-color .3s}
+.extra a:hover{border-color:var(--gold)}
+.extra svg{width:18px;height:18px;color:var(--gold)}
 
 /* formandas */
-.grads{padding:var(--sec) 0}
-.masonry{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.masonry figure{border-radius:var(--r-sm);overflow:hidden;background:var(--blush);aspect-ratio:4/5}
-.masonry img{width:100%;height:100%;object-fit:cover}
+.grads .photo{aspect-ratio:4/5}
 
-/* conteúdo */
-.content{padding:var(--sec) 0;background:var(--blush)}
-.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.reel{position:relative;border-radius:var(--r-sm);overflow:hidden;aspect-ratio:2/3;background:#000}
-.reel img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+/* reels */
+.reel{display:block;border-radius:var(--radius);overflow:hidden;aspect-ratio:2/3;background:#000}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
 .reel:hover img{transform:scale(1.04)}
-.reel>.ico{position:absolute;right:12px;top:12px;width:20px;height:20px;color:#fff;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5))}
-.content .follow{margin-top:40px;text-align:center}
+.follow{text-align:center;margin-top:36px}
 
 /* dúvidas */
-.faq{padding:var(--sec) 0}
-.faq details{background:#fff;border-radius:var(--r-sm);margin-bottom:12px;box-shadow:inset 0 0 0 1px var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 24px;font-weight:600;font-size:17px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary svg{width:20px;height:20px;color:var(--rose);transition:transform .35s var(--ease)}
-.faq details[open] summary svg{transform:rotate(180deg)}
-.faq details p{color:var(--muted);padding:0 24px 22px}
+.faq-list{max-width:780px;margin:0 auto}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list details:first-child{border-top:1px solid var(--line)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:600;font-size:17.5px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary svg{width:20px;height:20px;color:var(--gold);transition:transform .35s var(--ease)}
+.faq-list details[open] summary svg{transform:rotate(180deg)}
+.faq-list p{color:var(--muted);padding:0 0 22px}
 
 /* final */
-.final{padding:0 0 var(--sec)}
-.final-box{background:var(--blush);border-radius:calc(var(--r) + 8px);padding:clamp(44px,7vw,88px) clamp(24px,5vw,64px);text-align:center}
-.final-box .tag{background:#fff}
-.final-box h2{max-width:760px;margin:18px auto 16px}
-.final-box .sub{margin:0 auto 32px}
-.final .ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.final .ctas{justify-content:center}
 
 /* rodapé */
-footer{border-top:1px solid var(--line);padding:56px 0 calc(36px + env(safe-area-inset-bottom));font-size:15px;color:var(--muted)}
+footer{background:var(--black);color:rgba(255,255,255,.6);padding:64px 0 calc(32px + env(safe-area-inset-bottom));font-size:15px;border-top:1px solid rgba(184,149,90,.25)}
 .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px}
-.foot h4{color:var(--plum);font-size:15px;margin-bottom:14px;font-weight:600}
-.foot a{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.foot a:hover{color:var(--rose-deep)}
-.foot svg{width:18px;height:18px;color:var(--rose)}
-.foot .logo{display:inline-block;margin-bottom:12px}
-.legal{padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px}
+.foot .logo b{color:#fff}
+.foot .logo{margin-bottom:14px;flex-direction:column;align-items:flex-start;gap:0}
+.foot h4{color:#fff;font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.foot a{display:flex;align-items:center;gap:10px;margin-bottom:10px;transition:color .3s}
+.foot a:hover{color:var(--gold-light)}
+.foot svg{width:18px;height:18px;color:var(--gold)}
+.legal{padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:rgba(255,255,255,.42)}
 
 /* motion */
-.up{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
-.up.in{opacity:1;transform:none}
-.mask{clip-path:inset(12% 6% 12% 6% round var(--r));transition:clip-path 1.3s var(--ease)}
-.mask.in{clip-path:inset(0 0 0 0 round var(--r))}
-@media (prefers-reduced-motion:reduce){.up,.mask{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}}
 
 /* responsivo */
 @media (max-width:1000px){
   .top nav{display:none}
-  .letter .wrap,.course-box{grid-template-columns:1fr}
-  .letter-pic{max-width:420px}
+  .hero .wrap,.about .wrap,.course .wrap{grid-template-columns:1fr}
+  .hero-photo{max-width:440px;width:100%;margin:0 auto}
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .books .g3{grid-template-columns:1fr;max-width:420px;margin:0 auto}
   .vid{max-width:380px;margin:0 auto}
-  .books-grid{grid-template-columns:1fr;gap:56px}
-  .reels{grid-template-columns:repeat(2,1fr)}
-  .masonry{grid-template-columns:repeat(2,1fr)}
   .foot{grid-template-columns:1fr 1fr}
   .foot>div:first-child{grid-column:1/-1}
 }
@@ -202,18 +201,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(36px + env(safe-area
   body{font-size:16px}
   .top .wrap{height:66px}
   .top .btn{height:40px;padding:0 14px;font-size:14px}
-  .hero-ctas .btn,.final .btn,.course-box .btn{width:100%}
-  .book .cover{max-width:210px}
-  .hero-pic{aspect-ratio:4/3.4}
-  .facts{grid-template-columns:1fr;margin-top:-28px;gap:10px;padding:0 12px}
-  .foryou ul{grid-template-columns:1fr}
-  .letter-pic .stamp{right:12px;bottom:16px}
-  .timeline{grid-template-columns:1fr;gap:28px;padding-left:36px}
-  .timeline::before{left:9px;right:auto;top:8px;bottom:8px;width:2px;height:auto;background:linear-gradient(180deg,var(--rose),var(--blush-2))}
-  .timeline li{padding-top:0}
-  .timeline li::before{left:-36px;top:4px}
-  .masonry{gap:12px}
-  .reels{gap:12px}
+  .ctas .btn{width:100%}
+  .hero-photo{max-width:none;padding-right:10px}
+  .hero-photo::before{inset:12px 0 -12px 12px}
+  .hero-badge{left:12px;bottom:16px}
+  .stat{padding:24px 8px}
+  .stat span{font-size:13px}
+  .g2,.steps .g3{grid-template-columns:1fr}
+  .grid{gap:14px}
+  .card{padding:26px 22px}
+  .card.book{padding:0}
   .foot{grid-template-columns:1fr;gap:28px}
 }
 </style>
@@ -222,186 +219,186 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(36px + env(safe-area
 
 <header class="top" id="top">
   <div class="wrap">
-    <a href="#" class="logo" aria-label="Início">Andréa <em>Vieira</em></a>
+    <a href="#" class="logo" aria-label="Início"><b>Andréa Vieira</b><small>Saúde emocional</small></a>
     <nav>
-      <a href="#sobre">Quem sou</a>
+      <a href="#sobre">Sobre</a>
       <a href="#curso">O curso</a>
       <a href="#livros">Livros</a>
       <a href="#formandas">Formandas</a>
     </nav>
-    <a class="btn btn-plum" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Fazer o curso</a>
+    <a class="btn btn-dark" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Fazer o curso</a>
   </div>
 </header>
 
-<section class="hero center">
+<section class="hero">
   <div class="wrap">
-    <span class="tag up">Saúde emocional para mulheres</span>
-    <h1 class="up" style="--d:.08s">Você não precisa atravessar a dor <em>sozinha</em></h1>
-    <p class="sub up" style="--d:.16s">Eu caminho com mulheres que querem curar as feridas de dentro, vencer a ansiedade e se reencontrar em Deus, com o que a neurociência comportamental ensina e com os princípios da Palavra.</p>
-    <div class="hero-ctas up" style="--d:.24s">
-      <a class="btn btn-rose" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Quero fazer o Mulheres Curadas <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
-      <a class="btn btn-soft" href="#sobre">Conhecer a Andréa</a>
-    </div>
-    <div class="hero-pic mask"><img src="img/depoimentos.jpg" alt="Formandas do curso Mulheres Curadas reunidas na formatura" fetchpriority="high"></div>
-    <div class="facts">
-      <div class="fact up"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg><span><b>Terapeuta comportamental</b><small>Inteligência emocional</small></span></div>
-      <div class="fact up" style="--d:.08s"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /> </svg><span><b>3 livros publicados</b><small>Sobre dor, cura e fé</small></span></div>
-      <div class="fact up" style="--d:.16s"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /> </svg><span><b>Turmas formadas</b><small>Presencial e online</small></span></div>
-    </div>
-  </div>
-</section>
-
-<section class="letter" id="sobre">
-  <div class="wrap">
-    <div class="letter-pic up">
-      <div class="frame"><img src="img/sobre.jpg" alt="Andréa Vieira" loading="lazy"></div>
-      <div class="stamp"><em>26 anos</em>de casamento e fé</div>
-    </div>
     <div>
-      <span class="tag up">Quem sou</span>
-      <h2 class="up" style="--d:.06s">Oi, eu sou a <em>Andréa</em></h2>
-      <p class="up" style="--d:.1s">Sou palestrante em saúde emocional feminina, terapeuta comportamental com formação em inteligência emocional, escritora, mãe e casada há 26 anos.</p>
-      <p class="up" style="--d:.14s">Já passei por vales muito fundos, daqueles em que a gente acha que não vai conseguir levantar, e foi justamente ali que eu entendi o que Deus queria fazer com a minha história. Hoje eu uso tudo que aprendi pra ajudar outras mulheres a entender o que sentem, reconhecer o valor que têm e descobrir que ainda tem muita vida pela frente.</p>
-      <p class="up" style="--d:.18s">Eu acredito de verdade que cuidar das emoções também é cuidar da vida que Deus nos confiou, e foi desse jeito que nasceu o Mulheres Curadas.</p>
-      <div class="sign up" style="--d:.22s"><small>Com carinho,</small><em>Andréa Vieira</em></div>
-    </div>
-  </div>
-</section>
-
-<section class="foryou">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="tag up" style="background:var(--cream)">Pra você</span>
-      <h2 class="up" style="--d:.06s">Talvez você se reconheça <em>aqui</em></h2>
-    </div>
-    <ul>
-      <li class="up"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> </svg><span>Você deita, a cabeça não para e acorda já cansada, pensando em tudo que pode dar errado amanhã.</span></li>
-      <li class="up" style="--d:.06s"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> </svg><span>Coisas que aconteceram lá atrás ainda aparecem no seu jeito de reagir, de brigar ou de se calar.</span></li>
-      <li class="up"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> </svg><span>Às vezes você se pega repetindo com os seus filhos aquilo que jurou que nunca ia repetir.</span></li>
-      <li class="up" style="--d:.06s"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> </svg><span>Cuida de todo mundo, só que quando para um minuto não sabe mais do que gosta nem com o que sonha.</span></li>
-    </ul>
-    <p class="close center up">Se alguma dessas frases doeu um pouquinho, a jornada foi pensada pra você.</p>
-  </div>
-</section>
-
-<section class="course" id="curso">
-  <div class="wrap">
-    <div class="course-box on-dark">
-      <div>
-        <span class="tag up">O curso</span>
-        <h2 class="up" style="--d:.06s">Mulheres <em>Curadas</em></h2>
-        <p class="sub up" style="--d:.1s">Uma jornada de autoconhecimento, cuidado emocional e fortalecimento espiritual que você faz no seu tempo, de casa, com o mesmo conteúdo que eu levo pras turmas presenciais.</p>
-        <ul class="rows up" style="--d:.14s">
-          <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /> <rect x="2" y="6" width="14" height="12" rx="2" /> </svg><span><b>12 aulas gravadas</b><small>Pra assistir quando e onde quiser, durante um ano inteiro.</small></span></li>
-          <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg><span><b>Manual de Cura em PDF</b><small>Material pra acompanhar e aprofundar cada aula.</small></span></li>
-          <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /> </svg><span><b>Acompanhamento</b><small>Eu e a minha equipe respondemos as dúvidas de cada aula.</small></span></li>
-          <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /> </svg><span><b>Certificado</b><small>Liberado automaticamente quando você termina a jornada.</small></span></li>
-        </ul>
-        <a class="btn btn-rose up" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Começar minha jornada <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
-        <p class="note up">Pela Kiwify, em até 12x no cartão, Pix ou boleto. Quer as aulas ao vivo comigo? <a href="https://ig.me/m/andreavieiradacunha_" target="_blank" rel="noopener">Me manda CURADAS no direct</a>.</p>
+      <span class="eyebrow left rv">Saúde emocional para mulheres</span>
+      <h1 class="rv" style="--d:.06s">Você não precisa atravessar a dor <em>sozinha</em></h1>
+      <p class="lead rv" style="--d:.12s">Eu caminho com mulheres que querem curar as feridas de dentro, vencer a ansiedade e se reencontrar em Deus, juntando o que a neurociência comportamental ensina com os princípios da Palavra.</p>
+      <div class="ctas rv" style="--d:.18s">
+        <a class="btn btn-dark" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Conhecer o Mulheres Curadas <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+        <a class="btn btn-line" href="#livros">Ver os livros</a>
       </div>
-      <div class="up" style="--d:.12s">
-        <div class="vid"><video src="img/depoimento.mp4" poster="img/depoimento.jpg" controls playsinline preload="none"></video></div>
-        <p class="vid-cap">Uma formanda contando o que descobriu no curso</p>
-      </div>
+      <ul class="checks rv" style="--d:.24s">
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg>Terapeuta comportamental</li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg>Palestrante</li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg>Escritora</li>
+      </ul>
+    </div>
+    <div class="hero-photo rv" style="--d:.1s">
+      <div class="photo"><img src="img/sobre.jpg" alt="Andréa Vieira da Cunha" fetchpriority="high"></div>
+      <div class="hero-badge"><b>Andréa Vieira da Cunha</b><small>Criadora do Mulheres Curadas</small></div>
     </div>
   </div>
 </section>
 
-<section class="path">
+<section class="stats">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="tag up">Como é a jornada</span>
-      <h2 class="up" style="--d:.06s">A cura tem um <em>caminho</em></h2>
-    </div>
-    <ol class="timeline">
-      <li class="up"><small>Primeiro passo</small><h3>Olhar pras feridas</h3><p>A gente começa reconhecendo os padrões que te travam, porque não dá pra cuidar daquilo que a gente nem sabe que está ali.</p></li>
-      <li class="up" style="--d:.1s"><small>Segundo passo</small><h3>Acalmar a ansiedade</h3><p>Com princípios bíblicos e inteligência emocional você aprende a lidar com o que sente e a encontrar paz no hoje.</p></li>
-      <li class="up" style="--d:.2s"><small>Terceiro passo</small><h3>Se reencontrar em Deus</h3><p>Você descobre quem é de verdade e entende que a sua história não termina no lugar onde a dor começou.</p></li>
-    </ol>
+    <div class="stat rv"><b>3</b><span>livros publicados</span></div>
+    <div class="stat rv" style="--d:.06s"><b>12</b><span>aulas no curso</span></div>
+    <div class="stat rv" style="--d:.12s"><b>26</b><span>anos de casamento</span></div>
   </div>
 </section>
 
-<section class="books on-dark" id="livros">
+<section class="sec about" id="sobre">
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="tag up">Livros</span>
-      <h2 class="up" style="--d:.06s">Pra ler devagar, com uma xícara de café <em>do lado</em></h2>
-      <p class="sub up" style="--d:.1s">Cada livro nasceu de um pedaço da minha história e do que eu vi acontecer na vida das mulheres que caminharam comigo.</p>
+    <div class="photo rv"><img src="img/depoimentos.jpg" alt="Turma de formandas do Mulheres Curadas" loading="lazy"></div>
+    <div>
+      <span class="eyebrow left rv">Sobre mim</span>
+      <h2 class="rv" style="--d:.06s">Por trás desse trabalho existe uma <em>história</em></h2>
+      <p class="rv" style="--d:.1s">Sou a Andréa Vieira da Cunha, palestrante em saúde emocional feminina, terapeuta comportamental com formação em inteligência emocional, escritora, mãe e casada há 26 anos.</p>
+      <p class="rv" style="--d:.14s">Já passei por vales muito fundos, daqueles em que a gente acha que não vai conseguir levantar, e foi ali que eu entendi o que Deus queria fazer com a minha história. Hoje eu uso tudo que aprendi pra ajudar outras mulheres a entender o que sentem, reconhecer o valor que têm e descobrir que ainda tem muita vida pela frente.</p>
+      <div class="sign rv" style="--d:.18s"><small>Com carinho,</small><em>Andréa Vieira</em></div>
     </div>
-    <div class="books-grid">
-      <a class="book up" href="https://hotmart.com/pt-br/marketplace/produtos/caminho-para-a-cura-um-guia-pratico-para-superar-feridas-e-viver-em-paz/E101189234R" target="_blank" rel="noopener">
+  </div>
+</section>
+
+<section class="sec sand">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Pra você</span>
+      <h2 class="rv" style="--d:.06s">Talvez você se reconheça <em>aqui</em></h2>
+    </div>
+    <div class="grid g2">
+      <div class="card rv"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg><h3>A cabeça não desliga</h3><p>Você deita, a cabeça não para e acorda já cansada, pensando em tudo que pode dar errado amanhã.</p></div>
+      <div class="card rv" style="--d:.06s"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 20h10" /> <path d="M10 20c5.5-2.5.8-6.4 3-10" /> <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /> <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" /> </svg><h3>Feridas que voltam</h3><p>Coisas que aconteceram lá atrás ainda aparecem no seu jeito de reagir, de brigar ou de se calar.</p></div>
+      <div class="card rv"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /> </svg><h3>Repetindo com os filhos</h3><p>Às vezes você se pega repetindo com os seus filhos aquilo que jurou que nunca ia repetir.</p></div>
+      <div class="card rv" style="--d:.06s"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /> <circle cx="12" cy="12" r="10" /> </svg><h3>Perdida de si mesma</h3><p>Cuida de todo mundo, só que quando para um minuto não sabe mais do que gosta nem com o que sonha.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark course" id="curso">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow left rv">O curso</span>
+      <h2 class="rv" style="--d:.06s">Mulheres <em>Curadas</em></h2>
+      <p class="lead rv" style="--d:.1s">Uma jornada de autoconhecimento, cuidado emocional e fortalecimento espiritual que você faz no seu tempo, de casa, com o mesmo conteúdo que eu levo pras turmas presenciais.</p>
+      <ul class="list rv" style="--d:.14s">
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span><b>12 aulas gravadas</b><small>Pra assistir quando e onde quiser, durante um ano inteiro.</small></span></li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span><b>Manual de Cura em PDF</b><small>Material pra acompanhar e aprofundar cada aula.</small></span></li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span><b>Acompanhamento</b><small>Eu e a minha equipe respondemos as dúvidas de cada aula.</small></span></li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 6 9 17l-5-5" /> </svg><span><b>Certificado</b><small>Liberado automaticamente quando você termina a jornada.</small></span></li>
+      </ul>
+      <div class="ctas rv" style="--d:.18s"><a class="btn btn-gold" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Quero fazer o curso <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a></div>
+      <p class="note rv">Pela Kiwify, em até 12x no cartão, Pix ou boleto. Quer as aulas ao vivo comigo? <a href="https://ig.me/m/andreavieiradacunha_" target="_blank" rel="noopener">Me manda CURADAS no direct</a>.</p>
+    </div>
+    <div class="rv" style="--d:.1s">
+      <div class="vid"><video src="img/depoimento.mp4" poster="img/depoimento.jpg" controls playsinline preload="none"></video></div>
+      <p class="vid-cap">Uma formanda contando o que descobriu no curso</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec steps">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Como é a jornada</span>
+      <h2 class="rv" style="--d:.06s">A cura tem um <em>caminho</em></h2>
+    </div>
+    <div class="grid g3">
+      <div class="card step rv"><div class="n">01</div><h3>Olhar pras feridas</h3><p>A gente começa reconhecendo os padrões que te travam, porque não dá pra cuidar daquilo que a gente nem sabe que está ali.</p></div>
+      <div class="card step rv" style="--d:.08s"><div class="n">02</div><h3>Acalmar a ansiedade</h3><p>Com princípios bíblicos e inteligência emocional você aprende a lidar com o que sente e a encontrar paz no hoje.</p></div>
+      <div class="card step rv" style="--d:.16s"><div class="n">03</div><h3>Se reencontrar em Deus</h3><p>Você descobre quem é de verdade e entende que a sua história não termina no lugar onde a dor começou.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sand books" id="livros">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Livros</span>
+      <h2 class="rv" style="--d:.06s">Pra continuar a conversa em <em>casa</em></h2>
+      <p class="rv" style="--d:.1s">Cada livro nasceu de um pedaço da minha história e do que eu vi acontecer na vida das mulheres que caminharam comigo.</p>
+    </div>
+    <div class="grid g3">
+      <a class="card book rv" href="https://hotmart.com/pt-br/marketplace/produtos/caminho-para-a-cura-um-guia-pratico-para-superar-feridas-e-viver-em-paz/E101189234R" target="_blank" rel="noopener">
         <div class="cover"><img src="img/livro-1.jpg" alt="Capa do livro Caminho para a Cura" loading="lazy"></div>
-        <h3>Caminho para a Cura</h3>
-        <p>Um guia prático pra superar as feridas emocionais e voltar a viver em paz.</p>
-        <span class="buy">Comprar na Hotmart <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></span>
+        <div class="body"><h3>Caminho para a Cura</h3><p>Um guia prático pra superar as feridas emocionais e voltar a viver em paz.</p><span class="more">Comprar na Hotmart <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></span></div>
       </a>
-      <a class="book up" style="--d:.1s" href="https://go.hotmart.com/Y105969079E" target="_blank" rel="noopener">
+      <a class="card book rv" style="--d:.08s" href="https://go.hotmart.com/Y105969079E" target="_blank" rel="noopener">
         <div class="cover"><img src="img/livro-2.jpg" alt="Capa do livro Nácar, o valor de uma ferida" loading="lazy"></div>
-        <h3>Nácar</h3>
-        <p>A pérola nasce de uma ferida na ostra, e a dor atravessada com Deus também pode virar algo precioso.</p>
-        <span class="buy">Comprar na Hotmart <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></span>
+        <div class="body"><h3>Nácar, o valor de uma ferida</h3><p>A pérola nasce de uma ferida na ostra, e a dor atravessada com Deus também pode virar algo precioso.</p><span class="more">Comprar na Hotmart <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></span></div>
       </a>
-      <a class="book up" style="--d:.2s" href="https://go.hotmart.com/M102919479B" target="_blank" rel="noopener">
+      <a class="card book rv" style="--d:.16s" href="https://go.hotmart.com/M102919479B" target="_blank" rel="noopener">
         <div class="cover"><img src="img/livro-3.jpg" alt="Capa do livro Acima do Medo" loading="lazy"></div>
-        <h3>Acima do Medo</h3>
-        <p>Um testemunho de fé pra quem está no meio da tempestade e precisa lembrar que dá pra seguir de pé.</p>
-        <span class="buy">Comprar na Hotmart <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></span>
+        <div class="body"><h3>Acima do Medo</h3><p>Um testemunho de fé pra quem está no meio da tempestade e precisa lembrar que dá pra seguir de pé.</p><span class="more">Comprar na Hotmart <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></span></div>
       </a>
     </div>
-    <div class="more-books up">
+    <div class="extra rv">
       <a href="https://hotmart.com/pt-br/marketplace/produtos/hagsxd-andrea-da-silva-vieira-kzukd/N106135722O" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z" /> <path d="M16 8 2 22" /> <path d="M17.5 15H9" /> </svg>As Guerreiras, um legado a ser seguido</a>
       <a href="https://hotmart.com/pt-br/marketplace/produtos/audiobook-comununicacao/Y107456335S" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" /> </svg>Audiobook O poder da comunicação</a>
     </div>
   </div>
 </section>
 
-<section class="grads" id="formandas">
+<section class="sec grads" id="formandas">
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="tag up">Formandas</span>
-      <h2 class="up" style="--d:.06s">Cada foto dessas tem uma <em>história</em></h2>
-      <p class="sub up" style="--d:.1s">Toda turma termina com formatura, e é sempre o dia mais bonito, porque são mulheres que decidiram não carregar a dor sozinhas.</p>
+    <div class="head">
+      <span class="eyebrow rv">Formandas</span>
+      <h2 class="rv" style="--d:.06s">Cada foto dessas tem uma <em>história</em></h2>
+      <p class="rv" style="--d:.1s">Toda turma termina com formatura, e é sempre o dia mais bonito, porque são mulheres que decidiram não carregar a dor sozinhas.</p>
     </div>
-    <div class="masonry">
-      <figure class="up"><img src="img/depoimento04.jpg" alt="Formanda com capelo e diploma" loading="lazy"></figure>
-      <figure class="up"><img src="img/depoimento03.jpg" alt="Turma de formandas no palco" loading="lazy"></figure>
-      <figure class="up"><img src="img/depoimento08.jpg" alt="Duas formandas com o diploma" loading="lazy"></figure>
-      <figure class="up"><img src="img/depoimento06.jpg" alt="Formandas na festa de formatura" loading="lazy"></figure>
-      <figure class="up"><img src="img/depoimento02.jpg" alt="Formanda abraçada na formatura" loading="lazy"></figure>
-      <figure class="up"><img src="img/depoimento07.jpg" alt="Turma reunida depois da formatura" loading="lazy"></figure>
+    <div class="grid g3">
+      <div class="photo rv"><img src="img/depoimento04.jpg" alt="Formanda com capelo e diploma" loading="lazy"></div>
+      <div class="photo rv" style="--d:.06s"><img src="img/depoimento08.jpg" alt="Duas formandas com o diploma" loading="lazy"></div>
+      <div class="photo rv" style="--d:.12s"><img src="img/depoimento02.jpg" alt="Formanda abraçada na formatura" loading="lazy"></div>
+      <div class="photo rv"><img src="img/depoimento03.jpg" alt="Turma de formandas no palco" loading="lazy"></div>
+      <div class="photo rv" style="--d:.06s"><img src="img/depoimento06.jpg" alt="Formandas na festa de formatura" loading="lazy"></div>
+      <div class="photo rv" style="--d:.12s"><img src="img/depoimento07.jpg" alt="Turma reunida depois da formatura" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="content" id="conteudo">
+<section class="sec sand" id="conteudo">
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="tag up" style="background:var(--cream)">No Instagram</span>
-      <h2 class="up" style="--d:.06s">Um pouquinho de cuidado no meio do seu <em>dia</em></h2>
-      <p class="sub up" style="--d:.1s">Vídeos curtos sobre ansiedade, feridas emocionais, maternidade e identidade, pra assistir no intervalo e mandar pra quem precisa ouvir.</p>
+    <div class="head">
+      <span class="eyebrow rv">No Instagram</span>
+      <h2 class="rv" style="--d:.06s">Um pouquinho de cuidado no meio do seu <em>dia</em></h2>
+      <p class="rv" style="--d:.1s">Vídeos curtos sobre ansiedade, feridas emocionais, maternidade e identidade, pra assistir no intervalo e mandar pra quem precisa ouvir.</p>
     </div>
-    <div class="reels">
-    <a class="reel up" style="--d:0.00s" href="https://www.instagram.com/reel/Df22nX9imU5/" target="_blank" rel="noopener"><img src="img/ig-Df22nX9imU5.jpg" alt="Por trás de cada propósito existe uma história" loading="lazy"></a>
-    <a class="reel up" style="--d:0.06s" href="https://www.instagram.com/reel/DaxzY-XiFtm/" target="_blank" rel="noopener"><img src="img/ig-DaxzY-XiFtm.jpg" alt="Novidades no curso Mulheres Curadas" loading="lazy"></a>
-    <a class="reel up" style="--d:0.12s" href="https://www.instagram.com/reel/Da84HmKCoT_/" target="_blank" rel="noopener"><img src="img/ig-Da84HmKCoT_.jpg" alt="Lançamento do Caminho para a Cura na FEFICC 2026" loading="lazy"></a>
-    <a class="reel up" style="--d:0.18s" href="https://www.instagram.com/reel/DfVZo2OC-IJ/" target="_blank" rel="noopener"><img src="img/ig-DfVZo2OC-IJ.jpg" alt="A cura dos pais transforma a história dos filhos" loading="lazy"></a>
-    <a class="reel up" style="--d:0.24s" href="https://www.instagram.com/reel/DfiSnlKCsKE/" target="_blank" rel="noopener"><img src="img/ig-DfiSnlKCsKE.jpg" alt="Você está com medo do futuro?" loading="lazy"></a>
-    <a class="reel up" style="--d:0.30s" href="https://www.instagram.com/reel/DfDWvAViAZL/" target="_blank" rel="noopener"><img src="img/ig-DfDWvAViAZL.jpg" alt="A consciência que cura" loading="lazy"></a>
-    <a class="reel up" style="--d:0.36s" href="https://www.instagram.com/reel/DfQPgQLChc2/" target="_blank" rel="noopener"><img src="img/ig-DfQPgQLChc2.jpg" alt="Saúde emocional" loading="lazy"></a>
-    <a class="reel up" style="--d:0.42s" href="https://www.instagram.com/reel/DfSvhcoCBw8/" target="_blank" rel="noopener"><img src="img/ig-DfSvhcoCBw8.jpg" alt="Você quer encontrar respostas?" loading="lazy"></a>
+    <div class="grid g4">
+    <a class="reel rv" style="--d:0.00s" href="https://www.instagram.com/reel/Df22nX9imU5/" target="_blank" rel="noopener"><img src="img/ig-Df22nX9imU5.jpg" alt="Por trás de cada propósito existe uma história" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.06s" href="https://www.instagram.com/reel/DaxzY-XiFtm/" target="_blank" rel="noopener"><img src="img/ig-DaxzY-XiFtm.jpg" alt="Novidades no curso Mulheres Curadas" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.12s" href="https://www.instagram.com/reel/Da84HmKCoT_/" target="_blank" rel="noopener"><img src="img/ig-Da84HmKCoT_.jpg" alt="Lançamento do Caminho para a Cura na FEFICC 2026" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.18s" href="https://www.instagram.com/reel/DfVZo2OC-IJ/" target="_blank" rel="noopener"><img src="img/ig-DfVZo2OC-IJ.jpg" alt="A cura dos pais transforma a história dos filhos" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.24s" href="https://www.instagram.com/reel/DfiSnlKCsKE/" target="_blank" rel="noopener"><img src="img/ig-DfiSnlKCsKE.jpg" alt="Você está com medo do futuro?" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.30s" href="https://www.instagram.com/reel/DfDWvAViAZL/" target="_blank" rel="noopener"><img src="img/ig-DfDWvAViAZL.jpg" alt="A consciência que cura" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.36s" href="https://www.instagram.com/reel/DfQPgQLChc2/" target="_blank" rel="noopener"><img src="img/ig-DfQPgQLChc2.jpg" alt="Saúde emocional" loading="lazy"></a>
+    <a class="reel rv" style="--d:0.42s" href="https://www.instagram.com/reel/DfSvhcoCBw8/" target="_blank" rel="noopener"><img src="img/ig-DfSvhcoCBw8.jpg" alt="Você quer encontrar respostas?" loading="lazy"></a>
     </div>
-    <div class="follow up"><a class="btn btn-plum" href="https://www.instagram.com/andreavieiradacunha_/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /> <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /> <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /> </svg>Seguir @andreavieiradacunha_</a></div>
+    <div class="follow rv"><a class="btn btn-line" href="https://www.instagram.com/andreavieiradacunha_/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /> <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /> <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /> </svg>Seguir @andreavieiradacunha_</a></div>
   </div>
 </section>
 
-<section class="faq">
-  <div class="wrap narrow">
-    <div class="sec-head center">
-      <span class="tag up">Dúvidas</span>
-      <h2 class="up" style="--d:.06s">Antes de você <em>começar</em></h2>
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Dúvidas</span>
+      <h2 class="rv" style="--d:.06s">Perguntas <em>frequentes</em></h2>
     </div>
-    <div class="up">
+    <div class="faq-list rv">
       <details><summary>Pra quem é o Mulheres Curadas? <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></summary><p>É pra mulher que quer cuidar de feridas emocionais, sair dos ciclos de ansiedade e medo e fortalecer a fé, com um direcionamento prático, acolhedor e bíblico.</p></details>
       <details><summary>Como funciona o acesso às aulas? <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></summary><p>O curso é 100% online. Assim que a inscrição é confirmada você recebe o acesso por e-mail e entra na área de alunas, onde as aulas e os materiais já estão organizados pra assistir quando quiser.</p></details>
       <details><summary>Por quanto tempo eu tenho acesso? <svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m6 9 6 6 6-6" /> </svg></summary><p>Você tem acesso a todas as aulas gravadas e às atualizações do curso por um ano inteiro, contando da data da compra.</p></details>
@@ -411,16 +408,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(36px + env(safe-area
   </div>
 </section>
 
-<section class="final" id="contato">
+<section class="sec black final" id="contato">
   <div class="wrap">
-    <div class="final-box">
-      <span class="tag up">Vamos conversar</span>
-      <h2 class="up" style="--d:.06s">Se o seu coração apertou lendo até aqui, me manda uma <em>mensagem</em></h2>
-      <p class="sub up" style="--d:.1s">Escreve CURADAS no meu direct que eu te conto tudo sobre a próxima turma ao vivo, ou, se preferir, você já começa hoje pelas aulas gravadas.</p>
-      <div class="ctas up" style="--d:.14s">
-        <a class="btn btn-rose" href="https://ig.me/m/andreavieiradacunha_" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /> </svg>Mandar CURADAS no direct</a>
-        <a class="btn btn-soft" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Começar pelas aulas gravadas</a>
-      </div>
+    <div class="head" style="margin-bottom:36px">
+      <span class="eyebrow rv">Vamos conversar</span>
+      <h2 class="rv" style="--d:.06s">Se o seu coração apertou lendo até aqui, me manda uma <em>mensagem</em></h2>
+      <p class="rv" style="--d:.1s">Escreve CURADAS no meu direct que eu te conto tudo sobre a próxima turma ao vivo, ou, se preferir, você já começa hoje pelas aulas gravadas.</p>
+    </div>
+    <div class="ctas rv" style="--d:.14s">
+      <a class="btn btn-gold" href="https://ig.me/m/andreavieiradacunha_" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /> </svg>Mandar CURADAS no direct</a>
+      <a class="btn btn-line" href="https://kiwify.app/3fMlAHY" target="_blank" rel="noopener">Começar pelas aulas gravadas</a>
     </div>
   </div>
 </section>
@@ -429,7 +426,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 calc(36px + env(safe-area
   <div class="wrap">
     <div class="foot">
       <div>
-        <a href="#" class="logo">Andréa <em>Vieira</em></a>
+        <a href="#" class="logo"><b>Andréa Vieira</b><small>Saúde emocional</small></a>
         <p style="max-width:360px">Palestrante em saúde emocional feminina, terapeuta comportamental e escritora.</p>
       </div>
       <div>
@@ -457,7 +454,7 @@ document.getElementById('ano').textContent=new Date().getFullYear();
 const top_=document.getElementById('top');
 const onS=()=>top_.classList.toggle('solid',scrollY>10);addEventListener('scroll',onS,{passive:true});onS();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-document.querySelectorAll('.up,.mask').forEach(el=>io.observe(el));
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
